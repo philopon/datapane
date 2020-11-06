@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
 <title>datapane.client.api.dp_object API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Base classes …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -26,6 +26,12 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <h1 class="title">Module <code>datapane.client.api.dp_object</code></h1>
 </header>
 <section id="section-intro">
+<h2 id="base-classes">Base classes</h2>
+<p>The base classes used by all Datapane objects stored on the Datapane Server
+and accessible by the client API</p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;This module is not used directly</p>
+</div>
 </section>
 <section>
 </section>
@@ -36,131 +42,118 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="datapane.client.api.dp_object.BEObjectRef"><code class="flex name class">
-<span>class <span class="ident">BEObjectRef</span></span>
+<dt id="datapane.client.api.dp_object.DPObjectRef"><code class="flex name class">
+<span>class <span class="ident">DPObjectRef</span></span>
 <span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Abstract class used to reference core Datapane server objects - not used directly.</p></div>
 <h3>Subclasses</h3>
 <ul class="hlist">
-<li><a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></li>
-<li><a title="datapane.client.api.dp_object.Run" href="#datapane.client.api.dp_object.Run">Run</a></li>
-<li><a title="datapane.client.api.dp_object.Schedule" href="#datapane.client.api.dp_object.Schedule">Schedule</a></li>
-<li><a title="datapane.client.api.dp_object.Script" href="#datapane.client.api.dp_object.Script">Script</a></li>
-<li><a title="datapane.client.api.dp_object.Variable" href="#datapane.client.api.dp_object.Variable">Variable</a></li>
 <li><a title="datapane.client.api.report.Report" href="report.html#datapane.client.api.report.Report">Report</a></li>
+<li><a title="datapane.client.api.teams.Blob" href="teams.html#datapane.client.api.teams.Blob">Blob</a></li>
+<li>datapane.client.api.teams.Run</li>
+<li><a title="datapane.client.api.teams.Schedule" href="teams.html#datapane.client.api.teams.Schedule">Schedule</a></li>
+<li><a title="datapane.client.api.teams.Script" href="teams.html#datapane.client.api.teams.Script">Script</a></li>
+<li><a title="datapane.client.api.teams.Variable" href="teams.html#datapane.client.api.teams.Variable">Variable</a></li>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.dp_object.BEObjectRef.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.res"><code class="name">var <span class="ident">res</span> : datapane.client.api.common.Resource</code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.res"><code class="name">var <span class="ident">res</span> : datapane.client.api.common.Resource</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.list_fields"><code class="name">var <span class="ident">list_fields</span> : List[str]</code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.list_fields"><code class="name">var <span class="ident">list_fields</span> : List[str]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 </dl>
 <h3>Static methods</h3>
 <dl>
-<dt id="datapane.client.api.dp_object.BEObjectRef.get"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.get"><code class="name flex">
 <span>def <span class="ident">get</span></span>(<span>name: str, owner: Union[str, NoneType] = None, version: Union[str, NoneType] = None) ‑> ~U</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Lookup and retrieve an object from the Datapane Server by its name</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>The name of the object, e.g. <code>my-blob 3</code></dd>
+<dt><strong><code>owner</code></strong></dt>
+<dd>The owner of the object, e.g. <code>fred</code></dd>
+<dt><strong><code>version</code></strong></dt>
+<dd>The version of the object (optional, defaults to latest)</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The version of the object if found</p></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.by_id"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.by_id"><code class="name flex">
 <span>def <span class="ident">by_id</span></span>(<span>id_or_url: str) ‑> ~U</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Lookup and retrieve an object from the Datapane Server by its id</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id_or_url</code></strong></dt>
+<dd>The <code>id</code>, or full URL that represents the object</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>The version of the object if found</p></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.post_with_files"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.post_with_files"><code class="name flex">
 <span>def <span class="ident">post_with_files</span></span>(<span>files: Dict[str, List[pathlib.Path]] = None, file: Union[pathlib.Path, NoneType] = None, **kwargs) ‑> ~U</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.post"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.post"><code class="name flex">
 <span>def <span class="ident">post</span></span>(<span>**kwargs) ‑> ~U</span>
 </code></dt>
 <dd>
-<div class="desc"><p>post object to api</p></div>
+<div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.list"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.list"><code class="name flex">
 <span>def <span class="ident">list</span></span>(<span>) ‑> Iterable[Dict[str, Any]]</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Return a list of the resources</p></div>
+<div class="desc"><p>Returns: A list of the Datapane objects of this type that are owned by the user</p></div>
 </dd>
 </dl>
 <h3>Instance variables</h3>
 <dl>
-<dt id="datapane.client.api.dp_object.BEObjectRef.dto"><code class="name">var <span class="ident">dto</span> : Union[munch.Munch, NoneType]</code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.dto"><code class="name">var <span class="ident">dto</span> : Union[munch.Munch, NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.has_dto"><code class="name">var <span class="ident">has_dto</span> : bool</code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.has_dto"><code class="name">var <span class="ident">has_dto</span> : bool</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.url"><code class="name">var <span class="ident">url</span> : <function NewType.<locals>.new_type at 0x7f2e90cc6d30></code></dt>
+<dt id="datapane.client.api.dp_object.DPObjectRef.url"><code class="name">var <span class="ident">url</span> : <function NewType.<locals>.new_type at 0x7fc2bf6a2d30></code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
 </dl>
 <h3>Methods</h3>
 <dl>
-<dt id="datapane.client.api.dp_object.BEObjectRef.refresh"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.refresh"><code class="name flex">
 <span>def <span class="ident">refresh</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Update the local representation of the object</p></div>
+<div class="desc"><p>Refresh the object with the latest data from the Datapane Server</p></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.delete"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.delete"><code class="name flex">
 <span>def <span class="ident">delete</span></span>(<span>self)</span>
 </code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Delete the object on the server</p></div>
 </dd>
-<dt id="datapane.client.api.dp_object.BEObjectRef.update"><code class="name flex">
+<dt id="datapane.client.api.dp_object.DPObjectRef.update"><code class="name flex">
 <span>def <span class="ident">update</span></span>(<span>self, **kwargs)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-</dd>
-<dt id="datapane.client.api.dp_object.ExportableObjectMixin"><code class="flex name class">
-<span>class <span class="ident">ExportableObjectMixin</span></span>
-</code></dt>
-<dd>
-<div class="desc"><p>Used by both Assets and Blobs to abstract over uploading/downloading and exporting</p></div>
-<h3>Subclasses</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></li>
-</ul>
-<h3>Methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.ExportableObjectMixin.download_df"><code class="name flex">
-<span>def <span class="ident">download_df</span></span>(<span>self) ‑> pandas.core.frame.DataFrame</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.ExportableObjectMixin.download_file"><code class="name flex">
-<span>def <span class="ident">download_file</span></span>(<span>self, fn: Union[pathlib.Path, os.PathLike, str])</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.ExportableObjectMixin.download_obj"><code class="name flex">
-<span>def <span class="ident">download_obj</span></span>(<span>self) ‑> Any</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -174,251 +167,8 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <div class="desc"></div>
 <h3>Subclasses</h3>
 <ul class="hlist">
-<li><a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></li>
 <li>datapane.client.api.report.Asset</li>
-</ul>
-</dd>
-<dt id="datapane.client.api.dp_object.Blob"><code class="flex name class">
-<span>class <span class="ident">Blob</span></span>
-<span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Used by both Assets and Blobs to abstract over uploading/downloading and exporting</p></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
-<li><a title="datapane.client.api.dp_object.UploadableObjectMixin" href="#datapane.client.api.dp_object.UploadableObjectMixin">UploadableObjectMixin</a></li>
-<li><a title="datapane.client.api.dp_object.ExportableObjectMixin" href="#datapane.client.api.dp_object.ExportableObjectMixin">ExportableObjectMixin</a></li>
-</ul>
-<h3>Class variables</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Blob.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Static methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Blob.upload_df"><code class="name flex">
-<span>def <span class="ident">upload_df</span></span>(<span>df: pandas.core.frame.DataFrame, **kwargs) ‑> <a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Blob.upload_file"><code class="name flex">
-<span>def <span class="ident">upload_file</span></span>(<span>fn: Union[pathlib.Path, os.PathLike, str], **kwargs) ‑> <a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Blob.upload_obj"><code class="name flex">
-<span>def <span class="ident">upload_obj</span></span>(<span>data: Any, is_json: bool = False, **kwargs: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]]) ‑> <a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
-<ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-</ul>
-</li>
-</ul>
-</dd>
-<dt id="datapane.client.api.dp_object.Script"><code class="flex name class">
-<span>class <span class="ident">Script</span></span>
-<span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
-</ul>
-<h3>Class variables</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Script.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Static methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Script.upload_pkg"><code class="name flex">
-<span>def <span class="ident">upload_pkg</span></span>(<span>sdist: pathlib.Path, dp_cfg: datapane.client.scripts.config.DatapaneCfg, **kwargs) ‑> <a title="datapane.client.api.dp_object.Script" href="#datapane.client.api.dp_object.Script">Script</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Script.download_pkg"><code class="name flex">
-<span>def <span class="ident">download_pkg</span></span>(<span>self) ‑> pathlib.Path</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Script.call"><code class="name flex">
-<span>def <span class="ident">call</span></span>(<span>self, **params)</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Download, install, and call the script with the provided params</p></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Script.run"><code class="name flex">
-<span>def <span class="ident">run</span></span>(<span>self, parameters=None, cache=True) ‑> <a title="datapane.client.api.dp_object.Run" href="#datapane.client.api.dp_object.Run">Run</a></span>
-</code></dt>
-<dd>
-<div class="desc"><p>(remote) run the given app (cloning if needed?)</p></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Script.local_run"><code class="name flex">
-<span>def <span class="ident">local_run</span></span>(<span>self, parameters=None) ‑> <a title="datapane.client.api.dp_object.Run" href="#datapane.client.api.dp_object.Run">Run</a></span>
-</code></dt>
-<dd>
-<div class="desc"><p>(local) run the given script</p></div>
-</dd>
-</dl>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
-<ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-</ul>
-</li>
-</ul>
-</dd>
-<dt id="datapane.client.api.dp_object.Run"><code class="flex name class">
-<span>class <span class="ident">Run</span></span>
-<span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
-</ul>
-<h3>Class variables</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Run.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Run.is_complete"><code class="name flex">
-<span>def <span class="ident">is_complete</span></span>(<span>self) ‑> bool</span>
-</code></dt>
-<dd>
-<div class="desc"><p>Return true if the run has finished</p></div>
-</dd>
-</dl>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
-<ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-</ul>
-</li>
-</ul>
-</dd>
-<dt id="datapane.client.api.dp_object.Variable"><code class="flex name class">
-<span>class <span class="ident">Variable</span></span>
-<span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
-</ul>
-<h3>Class variables</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Variable.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Variable.list_fields"><code class="name">var <span class="ident">list_fields</span> : List[str]</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Static methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Variable.create"><code class="name flex">
-<span>def <span class="ident">create</span></span>(<span>name: str, value: str, visibility: Union[str, NoneType] = None) ‑> <a title="datapane.client.api.dp_object.Variable" href="#datapane.client.api.dp_object.Variable">Variable</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
-<ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-</ul>
-</li>
-</ul>
-</dd>
-<dt id="datapane.client.api.dp_object.Schedule"><code class="flex name class">
-<span>class <span class="ident">Schedule</span></span>
-<span>(</span><span>dto: Union[str, int, float, bool, NoneType, Mapping[str, ForwardRef('JSON')], List[ForwardRef('JSON')]] = None)</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-<h3>Ancestors</h3>
-<ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
-</ul>
-<h3>Class variables</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Schedule.endpoint"><code class="name">var <span class="ident">endpoint</span> : str</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-<dt id="datapane.client.api.dp_object.Schedule.list_fields"><code class="name">var <span class="ident">list_fields</span> : List[str]</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Static methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Schedule.create"><code class="name flex">
-<span>def <span class="ident">create</span></span>(<span>script: <a title="datapane.client.api.dp_object.Script" href="#datapane.client.api.dp_object.Script">Script</a>, cron: str, parameters: Dict[str, Any]) ‑> <a title="datapane.client.api.dp_object.Schedule" href="#datapane.client.api.dp_object.Schedule">Schedule</a></span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Methods</h3>
-<dl>
-<dt id="datapane.client.api.dp_object.Schedule.update"><code class="name flex">
-<span>def <span class="ident">update</span></span>(<span>self, cron: str = None, parameters: Dict[str, Any] = None) ‑> NoneType</span>
-</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
-</dl>
-<h3>Inherited members</h3>
-<ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
-<ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-</ul>
-</li>
+<li><a title="datapane.client.api.teams.Blob" href="teams.html#datapane.client.api.teams.Blob">Blob</a></li>
 </ul>
 </dd>
 </dl>
@@ -473,7 +223,9 @@ setTimeout(() => input.focus(), 100);
 </script>
 <h1>Index</h1>
 <div class="toc">
-<ul></ul>
+<ul>
+<li><a href="#base-classes">Base classes</a></li>
+</ul>
 </div>
 <ul id="index">
 <li><h3>Super-module</h3>
@@ -484,65 +236,20 @@ setTimeout(() => input.focus(), 100);
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="datapane.client.api.dp_object.BEObjectRef" href="#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></code></h4>
+<h4><code><a title="datapane.client.api.dp_object.DPObjectRef" href="#datapane.client.api.dp_object.DPObjectRef">DPObjectRef</a></code></h4>
 <ul class="two-column">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.get" href="#datapane.client.api.dp_object.BEObjectRef.get">get</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.by_id" href="#datapane.client.api.dp_object.BEObjectRef.by_id">by_id</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post_with_files" href="#datapane.client.api.dp_object.BEObjectRef.post_with_files">post_with_files</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.post" href="#datapane.client.api.dp_object.BEObjectRef.post">post</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.delete" href="#datapane.client.api.dp_object.BEObjectRef.delete">delete</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.update" href="#datapane.client.api.dp_object.BEObjectRef.update">update</a></code></li>
-</ul>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.ExportableObjectMixin" href="#datapane.client.api.dp_object.ExportableObjectMixin">ExportableObjectMixin</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.ExportableObjectMixin.download_df" href="#datapane.client.api.dp_object.ExportableObjectMixin.download_df">download_df</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.ExportableObjectMixin.download_file" href="#datapane.client.api.dp_object.ExportableObjectMixin.download_file">download_file</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.ExportableObjectMixin.download_obj" href="#datapane.client.api.dp_object.ExportableObjectMixin.download_obj">download_obj</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.get" href="#datapane.client.api.dp_object.DPObjectRef.get">get</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.by_id" href="#datapane.client.api.dp_object.DPObjectRef.by_id">by_id</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.post_with_files" href="#datapane.client.api.dp_object.DPObjectRef.post_with_files">post_with_files</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.post" href="#datapane.client.api.dp_object.DPObjectRef.post">post</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.list" href="#datapane.client.api.dp_object.DPObjectRef.list">list</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.refresh" href="#datapane.client.api.dp_object.DPObjectRef.refresh">refresh</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.delete" href="#datapane.client.api.dp_object.DPObjectRef.delete">delete</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.update" href="#datapane.client.api.dp_object.DPObjectRef.update">update</a></code></li>
 </ul>
 </li>
 <li>
 <h4><code><a title="datapane.client.api.dp_object.UploadableObjectMixin" href="#datapane.client.api.dp_object.UploadableObjectMixin">UploadableObjectMixin</a></code></h4>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.Blob" href="#datapane.client.api.dp_object.Blob">Blob</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.Blob.upload_df" href="#datapane.client.api.dp_object.Blob.upload_df">upload_df</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Blob.upload_file" href="#datapane.client.api.dp_object.Blob.upload_file">upload_file</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Blob.upload_obj" href="#datapane.client.api.dp_object.Blob.upload_obj">upload_obj</a></code></li>
-</ul>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.Script" href="#datapane.client.api.dp_object.Script">Script</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.Script.upload_pkg" href="#datapane.client.api.dp_object.Script.upload_pkg">upload_pkg</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Script.download_pkg" href="#datapane.client.api.dp_object.Script.download_pkg">download_pkg</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Script.call" href="#datapane.client.api.dp_object.Script.call">call</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Script.run" href="#datapane.client.api.dp_object.Script.run">run</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Script.local_run" href="#datapane.client.api.dp_object.Script.local_run">local_run</a></code></li>
-</ul>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.Run" href="#datapane.client.api.dp_object.Run">Run</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.Run.is_complete" href="#datapane.client.api.dp_object.Run.is_complete">is_complete</a></code></li>
-</ul>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.Variable" href="#datapane.client.api.dp_object.Variable">Variable</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.Variable.create" href="#datapane.client.api.dp_object.Variable.create">create</a></code></li>
-</ul>
-</li>
-<li>
-<h4><code><a title="datapane.client.api.dp_object.Schedule" href="#datapane.client.api.dp_object.Schedule">Schedule</a></code></h4>
-<ul class="">
-<li><code><a title="datapane.client.api.dp_object.Schedule.create" href="#datapane.client.api.dp_object.Schedule.create">create</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.Schedule.update" href="#datapane.client.api.dp_object.Schedule.update">update</a></code></li>
-</ul>
 </li>
 </ul>
 </li>

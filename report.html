@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
 <title>datapane.client.api.report API documentation</title>
-<meta name="description" content="" />
+<meta name="description" content="Datapane Reports API …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -26,6 +26,8 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <h1 class="title">Module <code>datapane.client.api.report</code></h1>
 </header>
 <section id="section-intro">
+<p>Datapane Reports API</p>
+<p>This includes the APIs for the <code><a title="datapane.client.api.report.Blocks" href="#datapane.client.api.report.Blocks">Blocks</a></code> that make up a <code><a title="datapane.client.api.report.Report" href="#datapane.client.api.report.Report">Report</a></code> and APIs for saving and pblishing them.</p>
 </section>
 <section>
 </section>
@@ -41,7 +43,15 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <span>(</span><span>id: str = None, **kwargs)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Base Block class - not used directly</p></div>
+<div class="desc"><p>Base Block class - subclassed by all Block types</p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;The class is not used directly.</p>
+</div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id to reference the block, used when querying blocks via XPath to aid embedding</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>abc.ABC</li>
@@ -65,8 +75,26 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <span>(</span><span>*arg_blocks: Union[<a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a>, str], blocks: List[Union[<a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a>, str]] = None, id: str = None, rows: int = 0, columns: int = 1)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Block objects at as a container that may hold a list of other Blocks object, such
-as Tables, Plots, and even recursive Blocks</p></div>
+<div class="desc"><p>Block objects act as a container that hold a list of nested Blocks object, such
+as Tables, Plots, etc.. - they may even hold Blocks themselves recursively.</p>
+<p>Blocks are used to provide a grouping for blocks can have layout options applied to them</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>*arg_blocks</code></strong></dt>
+<dd>Blocks to add to report</dd>
+<dt><strong><code>blocks</code></strong></dt>
+<dd>Allows providing the report blocks as a single list</dd>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id for the blocks to aid querying (optional)</dd>
+<dt><strong><code>rows</code></strong></dt>
+<dd>Display the contained blocks, e.g. Plots, using <em>n</em> rows</dd>
+<dt><strong><code>columns</code></strong></dt>
+<dd>Display the contained blocks, e.g. Plots, using <em>n</em> columns</dd>
+</dl>
+<div class="admonition tip">
+<p class="admonition-title">Tip:&ensp;Blocks can be passed using either arg parameters or the <code>blocks</code> kwarg, e.g.</p>
+<p><code>dp.Blocks(plot, table, columns=2)</code> or <code>dp.Blocks(blocks=[plot, table], columns=2)</code></p>
+</div></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a></li>
@@ -85,7 +113,17 @@ as Tables, Plots, and even recursive Blocks</p></div>
 <span>(</span><span>text: str, id: str = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report</p></div>
+<div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report</p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;This object is also available as <code>dp.Text</code></p>
+</div>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>text</code></strong></dt>
+<dd>The markdown formatted text, use triple-quotes, (<code>"""# My Title"""</code>) to create multi-line markdown text</dd>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id for the block to aid querying (optional)</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li><a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a></li>
@@ -104,7 +142,26 @@ as Tables, Plots, and even recursive Blocks</p></div>
 <span>(</span><span>data: Union[Any, NoneType] = None, file: Union[pathlib.Path, os.PathLike, str, NoneType] = None, is_json: bool = False, can_download: bool = True, name: Union[str, NoneType] = None, id: str = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>File blocks store a file that can be displayed and downloaded</p></div>
+<div class="desc"><p>File blocks are used to attach a file to the report that can be displayed (if possible) and downloaded by report viewers</p>
+<p>Any types of files may be attached, for instance, images (png / jpg), PDFs, JSON data, Excel files, etc.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>A python object to attach to the report (e.g. a dictionary)</dd>
+<dt><strong><code>file</code></strong></dt>
+<dd>Path to a file to attach to the report (e.g. a JPEG image)</dd>
+<dt><strong><code>is_json</code></strong></dt>
+<dd>If <code>True</code>, treat the <code>data</code> as JSON data already</dd>
+<dt><strong><code>can_download</code></strong></dt>
+<dd>Allow users to download the file when viewing the report</dd>
+<dt><strong><code>name</code></strong></dt>
+<dd>Name to be used when downloading the file</dd>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id for the block to aid querying (optional)</dd>
+</dl>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;either <code>data</code> or <code>file</code> must be provided</p>
+</div></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>datapane.client.api.report.Asset</li>
@@ -118,10 +175,6 @@ as Tables, Plots, and even recursive Blocks</p></div>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.report.File.caption"><code class="name">var <span class="ident">caption</span> : Union[str, NoneType]</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
 </dl>
 </dd>
 <dt id="datapane.client.api.report.Plot"><code class="flex name class">
@@ -129,8 +182,17 @@ as Tables, Plots, and even recursive Blocks</p></div>
 <span>(</span><span>data: Any, caption: Union[str, NoneType] = None, id: str = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Plot blocks store a Python-based plot, such as Altair, Boken, Matplotlib, or Plotly,
-that can be displayed in your report</p></div>
+<div class="desc"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your report when viewed in the browser.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>data</code></strong></dt>
+<dd>The <code>plot</code> object to attach</dd>
+<dt><strong><code>caption</code></strong></dt>
+<dd>A caption to display below the plot (optional)</dd>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id for the block to aid querying (optional)</dd>
+</dl></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>datapane.client.api.report.Asset</li>
@@ -140,10 +202,6 @@ that can be displayed in your report</p></div>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.Plot.file"><code class="name">var <span class="ident">file</span> : pathlib.Path</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
 <dt id="datapane.client.api.report.Plot.caption"><code class="name">var <span class="ident">caption</span> : Union[str, NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
@@ -155,8 +213,22 @@ that can be displayed in your report</p></div>
 <span>(</span><span>df: pandas.core.frame.DataFrame, caption: Union[str, NoneType] = None, can_pivot: bool = True, id: str = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Table blocks store a dataframe that can be viewed and filtered in your report, and exported to CSV or Excel.
-Provides pivot-table functionality by default.</p></div>
+<div class="desc"><p>Table blocks store a dataframe that can be viewed and filtered by users viewing your report,
+and downloaded by them as a CSV or Excel file.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>df</code></strong></dt>
+<dd>The pandas dataframe to attach to the report</dd>
+<dt><strong><code>caption</code></strong></dt>
+<dd>A caption to display below the plot (optional)</dd>
+<dt><strong><code>can_pivot</code></strong></dt>
+<dd>Is the table pivotable (not yet supported)</dd>
+<dt><strong><code>id</code></strong></dt>
+<dd>A unique id for the block to aid querying (optional)</dd>
+</dl>
+<div class="admonition hint">
+<p class="admonition-title">Hint:&ensp;<code>can_pivot</code> is currently unsupported and can be ignored</p>
+</div></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
 <li>datapane.client.api.report.Asset</li>
@@ -166,10 +238,6 @@ Provides pivot-table functionality by default.</p></div>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.Table.file"><code class="name">var <span class="ident">file</span> : pathlib.Path</code></dt>
-<dd>
-<div class="desc"></div>
-</dd>
 <dt id="datapane.client.api.report.Table.caption"><code class="name">var <span class="ident">caption</span> : Union[str, NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
@@ -181,12 +249,8 @@ Provides pivot-table functionality by default.</p></div>
 <span>(</span><span>*arg_blocks: Union[<a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a>, str], blocks: List[Union[<a title="datapane.client.api.report.ReportBlock" href="#datapane.client.api.report.ReportBlock">ReportBlock</a>, str]] = None, full_width: bool = False, **kwargs)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Reports collate plots, text, and tables into an interactive report that can be analysed by users
-in their Browser</p>
-<div class="admonition note">
-<p class="admonition-title">Note:&ensp;Blocks can be passed with using arg parameters or the <code>blocks</code> kwarg, e.g.</p>
-<p><code>dp.Report(plot, table)</code> or <code>dp.Report(blocks=[plot, table])</code></p>
-</div>
+<div class="desc"><p>Reports collate plots, text, tables, and files into an interactive report that
+can be analysed and shared by users in their Browser</p>
 <h2 id="args">Args</h2>
 <dl>
 <dt><strong><code>*arg_blocks</code></strong></dt>
@@ -196,11 +260,13 @@ in their Browser</p>
 <dt><strong><code>full_width</code></strong></dt>
 <dd>Set to <code>True</code> to increase the report width, for instance when creating a dashboard</dd>
 </dl>
-<h2 id="returns">Returns</h2>
-<p>A <code><a title="datapane.client.api.report.Report" href="#datapane.client.api.report.Report">Report</a></code> object that can be published, saved, etc.</p></div>
+<div class="admonition tip">
+<p class="admonition-title">Tip:&ensp;Blocks can be passed using either arg parameters or the <code>blocks</code> kwarg, e.g.</p>
+<p><code>dp.Report(plot, table)</code> or <code>dp.Report(blocks=[plot, table])</code></p>
+</div></div>
 <h3>Ancestors</h3>
 <ul class="hlist">
-<li><a title="datapane.client.api.dp_object.BEObjectRef" href="dp_object.html#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></li>
+<li><a title="datapane.client.api.dp_object.DPObjectRef" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef">DPObjectRef</a></li>
 </ul>
 <h3>Class variables</h3>
 <dl>
@@ -212,10 +278,27 @@ in their Browser</p>
 <h3>Methods</h3>
 <dl>
 <dt id="datapane.client.api.report.Report.publish"><code class="name flex">
-<span>def <span class="ident">publish</span></span>(<span>self, name: str, description: str = '', open: bool = False, tags: list = None, tweet: Union[bool, str] = False, source_url: str = '', **kwargs)</span>
+<span>def <span class="ident">publish</span></span>(<span>self, name: str, description: str = '', source_url: str = '', visibility: Union[str, NoneType] = None, open: bool = False, tags: List[str] = None, tweet: Union[bool, str] = False, **kwargs) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Publish the report, including its attached assets, to the logged-in Datapane Server</p></div>
+<div class="desc"><p>Publish the report, including its attached assets, to the logged-in Datapane Server.</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>name</code></strong></dt>
+<dd>The report name - can include spaces, caps, symbols, etc., e.g. "Profit &amp; Loss 2020"</dd>
+<dt><strong><code>description</code></strong></dt>
+<dd>A high-level description for the report, this is displayed in searches and thumbnails</dd>
+<dt><strong><code>source_url</code></strong></dt>
+<dd>A URL pointing to the source code for the report, e.g. a GitHub repo or a Colab report</dd>
+<dt><strong><code>visibility</code></strong></dt>
+<dd>one of <code>"PUBLIC"</code> <em>(default on Public)</em>, <code>"UNLISTED"</code>, <code>"ORG"</code> <em>(Teams only)</em>, or <code>"PRIVATE"</code> <em>(Teams only)</em></dd>
+<dt><strong><code>open</code></strong></dt>
+<dd>Open the file in your browser after creating</dd>
+<dt><strong><code>tags</code></strong></dt>
+<dd>A list of tags (as strings) used to categorise your report</dd>
+<dt><strong><code>tweet</code></strong></dt>
+<dd>Open twitter to tweet your published report - can customise the tweet by passing the message in as this parameter</dd>
+</dl></div>
 </dd>
 <dt id="datapane.client.api.report.Report.save"><code class="name flex">
 <span>def <span class="ident">save</span></span>(<span>self, path: str, open: bool = False, standalone: bool = False) ‑> NoneType</span>
@@ -227,24 +310,34 @@ in their Browser</p>
 <dt><strong><code>path</code></strong></dt>
 <dd>location to save the HTML file</dd>
 <dt><strong><code>open</code></strong></dt>
-<dd>set to <code>True</code> to open the file in your browser after creating</dd>
+<dd>Open the file in your browser after creating</dd>
 <dt><strong><code>standalone</code></strong></dt>
-<dd>set to <code>True</code> to create a fully standalone HTML report (this can result in large files)</dd>
+<dd>Create a fully standalone HTML report with no external/network dependencies <em>(this can result in large files)</em></dd>
 </dl></div>
 </dd>
 <dt id="datapane.client.api.report.Report.preview"><code class="name flex">
 <span>def <span class="ident">preview</span></span>(<span>self, width: int = 600, height: int = 500) ‑> NoneType</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Preview the report inside IPython notebooks in browser</p></div>
+<div class="desc"><p>Preview the report inside your currently running Jupyter notebook</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>width</code></strong></dt>
+<dd>Width of the report preview in Jupyter (default: 600)</dd>
+<dt><strong><code>height</code></strong></dt>
+<dd>Height of the report preview in Jupyter (default: 500)</dd>
+</dl></div>
 </dd>
 </dl>
 <h3>Inherited members</h3>
 <ul class="hlist">
-<li><code><b><a title="datapane.client.api.dp_object.BEObjectRef" href="dp_object.html#datapane.client.api.dp_object.BEObjectRef">BEObjectRef</a></b></code>:
+<li><code><b><a title="datapane.client.api.dp_object.DPObjectRef" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef">DPObjectRef</a></b></code>:
 <ul class="hlist">
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.list" href="dp_object.html#datapane.client.api.dp_object.BEObjectRef.list">list</a></code></li>
-<li><code><a title="datapane.client.api.dp_object.BEObjectRef.refresh" href="dp_object.html#datapane.client.api.dp_object.BEObjectRef.refresh">refresh</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.by_id" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef.by_id">by_id</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.delete" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef.delete">delete</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.get" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef.get">get</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.list" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef.list">list</a></code></li>
+<li><code><a title="datapane.client.api.dp_object.DPObjectRef.refresh" href="dp_object.html#datapane.client.api.dp_object.DPObjectRef.refresh">refresh</a></code></li>
 </ul>
 </li>
 </ul>

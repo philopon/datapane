@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 <meta name="generator" content="pdoc 0.9.1" />
 <title>datapane.client.api API documentation</title>
-<meta name="description" content="API docs for Datapane Client interface …" />
+<meta name="description" content="API docs for Datapane Client …" />
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
 <link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
 <link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
@@ -26,33 +26,61 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <h1 class="title">Package <code>datapane.client.api</code></h1>
 </header>
 <section id="section-intro">
-<h1 id="api-docs-for-datapane-client-interface">API docs for Datapane Client interface</h1>
+<h1 id="api-docs-for-datapane-client">API docs for Datapane Client</h1>
+<p>These objects are all available under the <code>datapane</code> module, via <code>import datapane as dp</code> (they are re-exported from <code><a title="datapane.client.api" href="#datapane.client.api">datapane.client.api</a></code>).</p>
+<h3 id="datapane-reports-api">Datapane Reports API</h3>
+<p>The core reporting APIs are available on both the public and teams plans, these are found in <code><a title="datapane.client.api.report" href="report.html">datapane.client.api.report</a></code>, including,</p>
 <ul>
-<li>Report API docs in <code><a title="datapane.client.api.report.Report" href="report.html#datapane.client.api.report.Report">Report</a></code></li>
+<li><code><a title="datapane.client.api.report.Report" href="report.html#datapane.client.api.report.Report">Report</a></code></li>
+<li><code><a title="datapane.client.api.report.Blocks" href="report.html#datapane.client.api.report.Blocks">Blocks</a></code><ul>
+<li><code><a title="datapane.client.api.report.Plot" href="report.html#datapane.client.api.report.Plot">Plot</a></code></li>
+<li><code><a title="datapane.client.api.report.Table" href="report.html#datapane.client.api.report.Table">Table</a></code></li>
+<li><code><a title="datapane.client.api.report.Markdown" href="report.html#datapane.client.api.report.Markdown">Markdown</a></code></li>
+<li><code><a title="datapane.client.api.report.File" href="report.html#datapane.client.api.report.File">File</a></code></li>
 </ul>
+</li>
+</ul>
+<h3 id="datapane-teams">Datapane Teams</h3>
+<p>Additional API docs for teams and enterprise features are found in <code><a title="datapane.client.api.teams" href="teams.html">datapane.client.api.teams</a></code> that provide automation and sharing of data analytics workflows</p>
+<ul>
+<li><code><a title="datapane.client.api.teams.Blob" href="teams.html#datapane.client.api.teams.Blob">Blob</a></code></li>
+<li><code><a title="datapane.client.api.teams.Variable" href="teams.html#datapane.client.api.teams.Variable">Variable</a></code></li>
+<li><code><a title="datapane.client.api.teams.Script" href="teams.html#datapane.client.api.teams.Script">Script</a></code></li>
+<li><code><a title="datapane.client.api.teams.Schedule" href="teams.html#datapane.client.api.teams.Schedule">Schedule</a></code></li>
+</ul>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;These docs represent the latest version of the datapane API available on <a href="https://pypi.org/project/datapane/">pypi</a></p>
+<p><a href="https://pypi.org/project/datapane/">
+<img src="https://img.shields.io/pypi/v/datapane?color=blue" alt="Latest release" />
+</a></p>
+</div>
 </section>
 <section>
 <h2 class="section-title" id="header-submodules">Sub-modules</h2>
 <dl>
 <dt><code class="name"><a title="datapane.client.api.common" href="common.html">datapane.client.api.common</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Common objects …</p></div>
 </dd>
 <dt><code class="name"><a title="datapane.client.api.dp_object" href="dp_object.html">datapane.client.api.dp_object</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Base classes …</p></div>
 </dd>
 <dt><code class="name"><a title="datapane.client.api.report" href="report.html">datapane.client.api.report</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Datapane Reports API …</p></div>
 </dd>
 <dt><code class="name"><a title="datapane.client.api.runtime" href="runtime.html">datapane.client.api.runtime</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Script runtime API …</p></div>
+</dd>
+<dt><code class="name"><a title="datapane.client.api.teams" href="teams.html">datapane.client.api.teams</a></code></dt>
+<dd>
+<div class="desc"><p>Datapane Teams API …</p></div>
 </dd>
 <dt><code class="name"><a title="datapane.client.api.user" href="user.html">datapane.client.api.user</a></code></dt>
 <dd>
-<div class="desc"></div>
+<div class="desc"><p>Datapane User API …</p></div>
 </dd>
 </dl>
 </section>
@@ -113,7 +141,11 @@ setTimeout(() => input.focus(), 100);
 <h1>Index</h1>
 <div class="toc">
 <ul>
-<li><a href="#api-docs-for-datapane-client-interface">API docs for Datapane Client interface</a></li>
+<li><a href="#api-docs-for-datapane-client">API docs for Datapane Client</a><ul>
+<li><a href="#datapane-reports-api">Datapane Reports API</a></li>
+<li><a href="#datapane-teams">Datapane Teams</a></li>
+</ul>
+</li>
 </ul>
 </div>
 <ul id="index">
@@ -123,6 +155,7 @@ setTimeout(() => input.focus(), 100);
 <li><code><a title="datapane.client.api.dp_object" href="dp_object.html">datapane.client.api.dp_object</a></code></li>
 <li><code><a title="datapane.client.api.report" href="report.html">datapane.client.api.report</a></code></li>
 <li><code><a title="datapane.client.api.runtime" href="runtime.html">datapane.client.api.runtime</a></code></li>
+<li><code><a title="datapane.client.api.teams" href="teams.html">datapane.client.api.teams</a></code></li>
 <li><code><a title="datapane.client.api.user" href="user.html">datapane.client.api.user</a></code></li>
 </ul>
 </li>
