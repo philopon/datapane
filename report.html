@@ -113,12 +113,12 @@ as Tables, Plots, etc.. - they may even hold Blocks themselves recursively.</p>
 <span>(</span><span>text: str, id: str = None)</span>
 </code></dt>
 <dd>
-<div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report</p>
+<div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report.</p>
 <div class="admonition note">
-<p class="admonition-title">Note:&ensp;This object is also available as <code>dp.Text</code></p>
+<p class="admonition-title">Note:&ensp;This object is also available as <code>dp.Text</code>, and any strings provided directly to the Report/Blocks object are converted automatically to Markdown blocks</p>
 </div>
 <div class="admonition tip">
-<p class="admonition-title">Tip:&ensp;You can embed a dataframe in a Markdown block by using <code>df.to_markdown()</code>, or use dp.Table for larger data if you need sorting, filtering and more.</p>
+<p class="admonition-title">Tip:&ensp;You can insert a dataframe in a Markdown block as a table by using <code>df.to_markdown()</code>, or use dp.Table for larger data if you need sorting, filtering and more.</p>
 </div>
 <h2 id="args">Args</h2>
 <dl>
