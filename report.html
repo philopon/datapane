@@ -317,7 +317,7 @@ can be analysed and shared by users in their Browser</p>
 <h3>Methods</h3>
 <dl>
 <dt id="datapane.client.api.report.Report.publish"><code class="name flex">
-<span>def <span class="ident">publish</span></span>(<span>self, name: str, description: str = '', source_url: str = '', visibility: Union[str, NoneType] = None, open: bool = False, tags: List[str] = None, tweet: Union[bool, str] = False, **kwargs) ‑> NoneType</span>
+<span>def <span class="ident">publish</span></span>(<span>self, name: str, description: str = '', source_url: str = '', visibility: Union[str, NoneType] = None, open: bool = False, tags: List[str] = None, **kwargs) ‑> NoneType</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Publish the report, including its attached assets, to the logged-in Datapane Server.</p>
@@ -335,8 +335,6 @@ can be analysed and shared by users in their Browser</p>
 <dd>Open the file in your browser after creating</dd>
 <dt><strong><code>tags</code></strong></dt>
 <dd>A list of tags (as strings) used to categorise your report</dd>
-<dt><strong><code>tweet</code></strong></dt>
-<dd>Open twitter to tweet your published report - can customise the tweet by passing the message in as this parameter</dd>
 </dl></div>
 </dd>
 <dt id="datapane.client.api.report.Report.save"><code class="name flex">
