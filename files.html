@@ -1,0 +1,1932 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>datapane.client.api.files API documentation</title>
+<meta name="description" content="Creating charts.
+…" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
+</script><script async src='https://www.google-analytics.com/analytics.js'></script>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>datapane.client.api.files</code></h1>
+</header>
+<section id="section-intro">
+<h2 id="creating-charts">Creating charts.</h2>
+<p>We recommend using Altair/pdvega for generating interactive charts: use the supplied <code><a title="datapane.client.api.files.save" href="#datapane.client.api.files.save">save()</a></code>
+function.</p>
+<h2 id="example">Example</h2>
+<p>altair_pandas::
+# uses the default pandas plotting API
+from datapane.files import save</p>
+<p>import numpy as np</p>
+<p>pd.set_option('plotting.backend', 'altair')
+# Installing altair_pandas registers this.</p>
+<p>data = pd.DataFrame({'x': np.random.randn(200),
+'y': np.random.randn(200)})</p>
+<p>plot = data.plot.scatter('x', 'y')
+save(plot, "scatter")</p>
+<p>pdvega::</p>
+<p>from datapane.files import save</p>
+<p>import numpy as np
+import pdvega</p>
+<p>data = pd.DataFrame({'x': np.random.randn(200),
+'y': np.random.randn(200)})</p>
+<p>plot = data.vgplot.scatter('x', 'y')
+save(plot, "scatter")</p>
+<p>altair::</p>
+<p>from datapane.files import save</p>
+<p>import altair as alt
+import numpy as np</p>
+<p>data = pd.DataFrame({'x': np.random.randn(20),
+'y': np.random.randn(20)})
+plot = alt.Chart(data).mark_bar().encode(
+y='y',
+x='x'
+)</p>
+<p>save(plot, "bars")</p>
+<p>Also for your convenience the <code><a title="datapane.client.api.files.save" href="#datapane.client.api.files.save">save()</a></code> function is compatible with matplotlib figures, Bokeh Figures, and pandas dataframes (it saves a table in this instance).</p>
+<h2 id="example_1">Example</h2>
+<p>::</p>
+<p>from datapane.files import save</p>
+<p>import matplotlib.pyplot as plt</p>
+<p>fig, ax = plt.subplots()
+ax.plot([1, 2, 3, 4], [1, 4, 9, 16])
+save(figure, "line.svg")
+out_df = in_df</p>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="datapane.client.api.files.get_wrapper"><code class="name flex">
+<span>def <span class="ident">get_wrapper</span></span>(<span>x: Any, default_to_json: bool, error_msg: Union[str, NoneType] = None) ‑> <a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.save"><code class="name flex">
+<span>def <span class="ident">save</span></span>(<span>obj: Any, default_to_json: bool = False) ‑> datapane.client.api.common.DPTmpFile</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.convert"><code class="name flex">
+<span>def <span class="ident">convert</span></span>(<span>obj: Any) ‑> <a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Attempt to convert/wrap a 'primitive' Python object into a Datapane 'boxed' object</p></div>
+</dd>
+</dl>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="datapane.client.api.files.BaseAsset"><code class="flex name class">
+<span>class <span class="ident">BaseAsset</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseJsonWriter" href="#datapane.client.api.files.BaseJsonWriter">BaseJsonWriter</a></li>
+<li><a title="datapane.client.api.files.BasePickleWriter" href="#datapane.client.api.files.BasePickleWriter">BasePickleWriter</a></li>
+<li><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></li>
+<li><a title="datapane.client.api.files.PathWrapper" href="#datapane.client.api.files.PathWrapper">PathWrapper</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.StringWrapper" href="#datapane.client.api.files.StringWrapper">StringWrapper</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseAsset.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseAsset.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, x: ~T) ‑> datapane.client.api.common.DPTmpFile</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'IO'>, x: ~T)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseAsset.to_block"><code class="name flex">
+<span>def <span class="ident">to_block</span></span>(<span>self, x: ~T) ‑> <a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BasePickleWriter"><code class="flex name class">
+<span>class <span class="ident">BasePickleWriter</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a pickle file from any object</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BasePickleWriter.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BasePickleWriter.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BasePickleWriter.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>File blocks are used to attach a file to the report that can be displayed (if possible) and downloaded by report viewers</p>
+<p>Any types of files may be attached, for instance, images (png / jpg), PDFs, JSON data, Excel files, etc.</p></div>
+</dd>
+<dt id="datapane.client.api.files.BasePickleWriter.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BasePickleWriter.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.BasePickleWriter.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, x: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BaseJsonWriter"><code class="flex name class">
+<span>class <span class="ident">BaseJsonWriter</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a JSON file from any object</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseJsonWriter.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseJsonWriter.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseJsonWriter.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseJsonWriter.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>File blocks are used to attach a file to the report that can be displayed (if possible) and downloaded by report viewers</p>
+<p>Any types of files may be attached, for instance, images (png / jpg), PDFs, JSON data, Excel files, etc.</p></div>
+</dd>
+<dt id="datapane.client.api.files.BaseJsonWriter.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseJsonWriter.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, x: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.StringWrapper"><code class="flex name class">
+<span>class <span class="ident">StringWrapper</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a Json for a string File, or Markdown for a Block</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.StringWrapper.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.StringWrapper.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.StringWrapper.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>str(object='') -&gt; str
+str(bytes_or_buffer[, encoding[, errors]]) -&gt; str</p>
+<p>Create a new string object from the given object. If encoding or
+errors is specified, then the object must expose a data buffer
+that will be decoded using the given encoding and error handler.
+Otherwise, returns the result of object.<strong>str</strong>() (if defined)
+or repr(object).
+encoding defaults to sys.getdefaultencoding().
+errors defaults to 'strict'.</p></div>
+</dd>
+<dt id="datapane.client.api.files.StringWrapper.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report.</p>
+<div class="admonition note">
+<p class="admonition-title">Note:&ensp;This object is also available as <code>dp.Text</code>, and any strings provided directly to the Report/Group object are converted automatically to Markdown blocks</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Tip:&ensp;You can also insert a dataframe in a Markdown block as a table by using <code>df.to_markdown()</code>, or use dp.Table or dp.DataTable for dedicated dataframe tables.</p>
+</div></div>
+</dd>
+<dt id="datapane.client.api.files.StringWrapper.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.StringWrapper.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, x: Any)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.PathWrapper"><code class="flex name class">
+<span>class <span class="ident">PathWrapper</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a File block around Path objects</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.PathWrapper.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PathWrapper.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PathWrapper.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PathWrapper.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>PurePath subclass that can make system calls.</p>
+<p>Path represents a filesystem path but unlike PurePath, also offers
+methods to do system calls on path objects. Depending on your system,
+instantiating a Path will return either a PosixPath or a WindowsPath
+object. You can also instantiate a PosixPath or WindowsPath directly,
+but cannot instantiate a WindowsPath on a POSIX system or vice versa.</p></div>
+</dd>
+<dt id="datapane.client.api.files.PathWrapper.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>File blocks are used to attach a file to the report that can be displayed (if possible) and downloaded by report viewers</p>
+<p>Any types of files may be attached, for instance, images (png / jpg), PDFs, JSON data, Excel files, etc.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.PathWrapper.to_block"><code class="name flex">
+<span>def <span class="ident">to_block</span></span>(<span>self, x: ~T) ‑> <a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BaseTable"><code class="flex name class">
+<span>class <span class="ident">BaseTable</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.DataFrameTable" href="#datapane.client.api.files.DataFrameTable">DataFrameTable</a></li>
+<li><a title="datapane.client.api.files.StylerTable" href="#datapane.client.api.files.StylerTable">StylerTable</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseTable.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~U</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.TABLE_CELLS_LIMIT"><code class="name">var <span class="ident">TABLE_CELLS_LIMIT</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>Table blocks store the contents of a dataframe as a HTML <code>table</code> whose style can be customised using
+pandas' <code>Styler</code> API.</p></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.allowed_attrs"><code class="name">var <span class="ident">allowed_attrs</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.allowed_tags"><code class="name">var <span class="ident">allowed_tags</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.allowed_protocols"><code class="name">var <span class="ident">allowed_protocols</span></code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.BaseTable.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'IO'>, x: ~U)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.to_block"><code class="name flex">
+<span>def <span class="ident">to_block</span></span>(<span>self, x: ~T) ‑> <a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a></span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BaseTable.render_html"><code class="name flex">
+<span>def <span class="ident">render_html</span></span>(<span>self, obj: ~U) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.StylerTable"><code class="flex name class">
+<span>class <span class="ident">StylerTable</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a styled html table from a pandas Styler object</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.StylerTable.TABLE_CELLS_LIMIT"><code class="name">var <span class="ident">TABLE_CELLS_LIMIT</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.StylerTable.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~U</code></dt>
+<dd>
+<div class="desc"><p>Helps style a DataFrame or Series according to the data with HTML and CSS.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>Series</code> or <code>DataFrame</code></dt>
+<dd>Data to be styled - either a Series or DataFrame.</dd>
+<dt><strong><code>precision</code></strong> :&ensp;<code>int</code></dt>
+<dd>Precision to round floats to, defaults to pd.options.display.precision.</dd>
+<dt><strong><code>table_styles</code></strong> :&ensp;<code>list-like</code>, default <code>None</code></dt>
+<dd>List of {selector: (attr, value)} dicts; see Notes.</dd>
+<dt><strong><code>uuid</code></strong> :&ensp;<code>str</code>, default <code>None</code></dt>
+<dd>A unique identifier to avoid CSS collisions; generated automatically.</dd>
+<dt><strong><code>caption</code></strong> :&ensp;<code>str</code>, default <code>None</code></dt>
+<dd>Caption to attach to the table.</dd>
+<dt><strong><code>table_attributes</code></strong> :&ensp;<code>str</code>, default <code>None</code></dt>
+<dd>Items that show up in the opening <code>&lt;table&gt;</code> tag
+in addition to automatic (by default) id.</dd>
+<dt><strong><code>cell_ids</code></strong> :&ensp;<code>bool</code>, default <code>True</code></dt>
+<dd>If True, each cell will have an <code>id</code> attribute in their HTML tag.
+The <code>id</code> takes the form <code>T_&lt;uuid&gt;_row&lt;num_row&gt;_col&lt;num_col&gt;</code>
+where <code>&lt;uuid&gt;</code> is the unique identifier, <code>&lt;num_row&gt;</code> is the row
+number and <code>&lt;num_col&gt;</code> is the column number.</dd>
+<dt><strong><code>na_rep</code></strong> :&ensp;<code>str</code>, optional</dt>
+<dd>
+<p>Representation for missing values.
+If <code>na_rep</code> is None, no special formatting is applied.</p>
+<div class="admonition versionadded">
+<p class="admonition-title">Added in version:&ensp;1.0.0</p>
+</div>
+</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>env</code></strong> :&ensp;<code>Jinja2 jinja2.Environment</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>template</code></strong> :&ensp;<code>Jinja2 Template</code></dt>
+<dd>&nbsp;</dd>
+<dt><strong><code>loader</code></strong> :&ensp;<code>Jinja2 Loader</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<dl>
+<dt><code>DataFrame.style</code></dt>
+<dd>Return a Styler object containing methods for building a styled HTML representation for the DataFrame.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>Most styling will be done by passing style functions into
+<code>Styler.apply</code> or <code>Styler.applymap</code>. Style functions should
+return values with strings containing CSS <code>'attr: value'</code> that will
+be applied to the indicated cells.</p>
+<p>If using in the Jupyter notebook, Styler has defined a <code>_repr_html_</code>
+to automatically render itself. Otherwise call Styler.render to get
+the generated HTML.</p>
+<p>CSS classes are attached to the generated HTML</p>
+<ul>
+<li>Index and Column names include <code>index_name</code> and <code>level&lt;k&gt;</code>
+where <code>k</code> is its level in a MultiIndex</li>
+<li>
+<p>Index label cells include</p>
+</li>
+<li>
+<p><code>row_heading</code></p>
+</li>
+<li><code>row&lt;n&gt;</code> where <code>n</code> is the numeric position of the row</li>
+<li>
+<p><code>level&lt;k&gt;</code> where <code>k</code> is the level in a MultiIndex</p>
+</li>
+<li>
+<p>Column label cells include</p>
+</li>
+<li><code>col_heading</code></li>
+<li><code>col&lt;n&gt;</code> where <code>n</code> is the numeric position of the column</li>
+<li>
+<p><code>level&lt;k&gt;</code> where <code>k</code> is the level in a MultiIndex</p>
+</li>
+<li>
+<p>Blank cells include <code>blank</code></p>
+</li>
+<li>Data cells include <code>data</code></li>
+</ul></div>
+</dd>
+<dt id="datapane.client.api.files.StylerTable.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></code>.<code><a title="datapane.client.api.files.BaseTable.block_type" href="#datapane.client.api.files.BaseTable.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Table blocks store the contents of a dataframe as a HTML <code>table</code> whose style can be customised using
+pandas' <code>Styler</code> API.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.StylerTable.render_html"><code class="name flex">
+<span>def <span class="ident">render_html</span></span>(<span>self, obj: ~U) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.DataFrameTable"><code class="flex name class">
+<span>class <span class="ident">DataFrameTable</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates an html table from the dataframe</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.DataFrameTable.TABLE_CELLS_LIMIT"><code class="name">var <span class="ident">TABLE_CELLS_LIMIT</span> : int</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.DataFrameTable.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~U</code></dt>
+<dd>
+<div class="desc"><p>Two-dimensional, size-mutable, potentially heterogeneous tabular data.</p>
+<p>Data structure also contains labeled axes (rows and columns).
+Arithmetic operations align on both row and column labels. Can be
+thought of as a dict-like container for Series objects. The primary
+pandas data structure.</p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>data</code></strong> :&ensp;<code>ndarray (structured</code> or <code>homogeneous), Iterable, dict,</code> or <code>DataFrame</code></dt>
+<dd>
+<p>Dict can contain Series, arrays, constants, or list-like objects.</p>
+<div class="admonition versionchanged">
+<p class="admonition-title">Changed in version:&ensp;0.23.0</p>
+<p>If data is a dict, column order follows insertion-order for
+Python 3.6 and later.</p>
+</div>
+<div class="admonition versionchanged">
+<p class="admonition-title">Changed in version:&ensp;0.25.0</p>
+<p>If data is a list of dicts, column order follows insertion-order
+for Python 3.6 and later.</p>
+</div>
+</dd>
+<dt><strong><code>index</code></strong> :&ensp;<code>Index</code> or <code>array-like</code></dt>
+<dd>Index to use for resulting frame. Will default to RangeIndex if
+no indexing information part of input data and no index provided.</dd>
+<dt><strong><code>columns</code></strong> :&ensp;<code>Index</code> or <code>array-like</code></dt>
+<dd>Column labels to use for resulting frame. Will default to
+RangeIndex (0, 1, 2, &hellip;, n) if no column labels are provided.</dd>
+<dt><strong><code>dtype</code></strong> :&ensp;<code>dtype</code>, default <code>None</code></dt>
+<dd>Data type to force. Only a single dtype is allowed. If None, infer.</dd>
+<dt><strong><code>copy</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Copy data from inputs. Only affects DataFrame / 2d ndarray input.</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<dl>
+<dt><code>DataFrame.from_records</code></dt>
+<dd>Constructor from tuples, also record arrays.</dd>
+<dt><code>DataFrame.from_dict</code></dt>
+<dd>From dicts of Series, arrays, or dicts.</dd>
+<dt><code>read_csv</code></dt>
+<dd>Read a comma-separated values (csv) file into DataFrame.</dd>
+<dt><code>read_table</code></dt>
+<dd>Read general delimited file into DataFrame.</dd>
+<dt><code>read_clipboard</code></dt>
+<dd>Read text from clipboard into DataFrame.</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<p>Constructing DataFrame from a dictionary.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; d = {'col1': [1, 2], 'col2': [3, 4]}
+&gt;&gt;&gt; df = pd.DataFrame(data=d)
+&gt;&gt;&gt; df
+   col1  col2
+0     1     3
+1     2     4
+</code></pre>
+<p>Notice that the inferred dtype is int64.</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; df.dtypes
+col1    int64
+col2    int64
+dtype: object
+</code></pre>
+<p>To enforce a single dtype:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; df = pd.DataFrame(data=d, dtype=np.int8)
+&gt;&gt;&gt; df.dtypes
+col1    int8
+col2    int8
+dtype: object
+</code></pre>
+<p>Constructing DataFrame from numpy ndarray:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; df2 = pd.DataFrame(np.array([[1, 2, 3], [4, 5, 6], [7, 8, 9]]),
+...                    columns=['a', 'b', 'c'])
+&gt;&gt;&gt; df2
+   a  b  c
+0  1  2  3
+1  4  5  6
+2  7  8  9
+</code></pre></div>
+</dd>
+<dt id="datapane.client.api.files.DataFrameTable.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></code>.<code><a title="datapane.client.api.files.BaseTable.block_type" href="#datapane.client.api.files.BaseTable.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Table blocks store the contents of a dataframe as a HTML <code>table</code> whose style can be customised using
+pandas' <code>Styler</code> API.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.DataFrameTable.render_html"><code class="name flex">
+<span>def <span class="ident">render_html</span></span>(<span>self, obj: ~U) ‑> str</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.PlotAsset"><code class="flex name class">
+<span>class <span class="ident">PlotAsset</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.AltairPlot" href="#datapane.client.api.files.AltairPlot">AltairPlot</a></li>
+<li><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></li>
+<li><a title="datapane.client.api.files.FoliumPlot" href="#datapane.client.api.files.FoliumPlot">FoliumPlot</a></li>
+<li><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotlyPlot" href="#datapane.client.api.files.PlotlyPlot">PlotlyPlot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.PlotAsset.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotAsset.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotAsset.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotAsset.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotAsset.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your report when viewed in the browser.</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.MatplotBasePlot"><code class="flex name class">
+<span>class <span class="ident">MatplotBasePlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.MatplotAxesPlot" href="#datapane.client.api.files.MatplotAxesPlot">MatplotAxesPlot</a></li>
+<li><a title="datapane.client.api.files.MatplotFigurePlot" href="#datapane.client.api.files.MatplotFigurePlot">MatplotFigurePlot</a></li>
+<li><a title="datapane.client.api.files.MatplotNDArrayPlot" href="#datapane.client.api.files.MatplotNDArrayPlot">MatplotNDArrayPlot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotBasePlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotBasePlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code>.<code><a title="datapane.client.api.files.PlotAsset.block_type" href="#datapane.client.api.files.PlotAsset.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotBasePlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotBasePlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotBasePlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.MatplotFigurePlot"><code class="flex name class">
+<span>class <span class="ident">MatplotFigurePlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotFigurePlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotFigurePlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></code>.<code><a title="datapane.client.api.files.MatplotBasePlot.block_type" href="#datapane.client.api.files.MatplotBasePlot.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotFigurePlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotFigurePlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotFigurePlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>The top level container for all the plot elements.</p>
+<p>The Figure instance supports callbacks through a <em>callbacks</em> attribute
+which is a <code>.CallbackRegistry</code> instance.
+The events you can connect to
+are 'dpi_changed', and the callback will be called with <code>func(fig)</code> where
+fig is the <code>Figure</code> instance.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>patch</code></strong></dt>
+<dd>The <code>.Rectangle</code> instance representing the figure background patch.</dd>
+<dt><strong><code>suppressComposite</code></strong></dt>
+<dd>For multiple figure images, the figure will make composite images
+depending on the renderer option_image_nocomposite function.
+If
+<em>suppressComposite</em> is a boolean, this will override the renderer.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotFigurePlot.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, x: matplotlib.figure.Figure) ‑> datapane.client.api.common.DPTmpFile</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.MatplotAxesPlot"><code class="flex name class">
+<span>class <span class="ident">MatplotAxesPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotAxesPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotAxesPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></code>.<code><a title="datapane.client.api.files.MatplotBasePlot.block_type" href="#datapane.client.api.files.MatplotBasePlot.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotAxesPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotAxesPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotAxesPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>The <code>Axes</code> contains most of the figure elements: <code>~.axis.Axis</code>,
+<code>~.axis.Tick</code>, <code>~.lines.Line2D</code>, <code>~.text.Text</code>, <code>~.patches.Polygon</code>, etc.,
+and sets the coordinate system.</p>
+<p>The <code>Axes</code> instance supports callbacks through a callbacks attribute which
+is a <code>~.cbook.CallbackRegistry</code> instance.
+The events you can connect to
+are 'xlim_changed' and 'ylim_changed' and the callback will be called with
+func(<em>ax</em>) where <em>ax</em> is the <code>Axes</code> instance.</p>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>dataLim</code></strong> :&ensp;<code>.Bbox</code></dt>
+<dd>The bounding box enclosing all data displayed in the Axes.</dd>
+<dt><strong><code>viewLim</code></strong> :&ensp;<code>.Bbox</code></dt>
+<dd>The view limits in data coordinates.</dd>
+</dl></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotAxesPlot.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, x: matplotlib.axes._axes.Axes) ‑> datapane.client.api.common.DPTmpFile</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot"><code class="flex name class">
+<span>class <span class="ident">MatplotNDArrayPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></code>.<code><a title="datapane.client.api.files.MatplotBasePlot.block_type" href="#datapane.client.api.files.MatplotBasePlot.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>ndarray(shape, dtype=float, buffer=None, offset=0,
+strides=None, order=None)</p>
+<p>An array object represents a multidimensional, homogeneous array
+of fixed-size items.
+An associated data-type object describes the
+format of each element in the array (its byte-order, how many bytes it
+occupies in memory, whether it is an integer, a floating point number,
+or something else, etc.)</p>
+<p>Arrays should be constructed using <code>array</code>, <code>zeros</code> or <code>empty</code> (refer
+to the See Also section below).
+The parameters given here refer to
+a low-level method (<code>ndarray(&hellip;)</code>) for instantiating an array.</p>
+<p>For more information, refer to the <code>numpy</code> module and examine the
+methods and attributes of an array.</p>
+<h2 id="parameters">Parameters</h2>
+<p>(for the <strong>new</strong> method; see Notes below)</p>
+<dl>
+<dt><strong><code>shape</code></strong> :&ensp;<code>tuple</code> of <code>ints</code></dt>
+<dd>Shape of created array.</dd>
+<dt><strong><code>dtype</code></strong> :&ensp;<code>data-type</code>, optional</dt>
+<dd>Any object that can be interpreted as a numpy data type.</dd>
+<dt><strong><code>buffer</code></strong> :&ensp;<code>object exposing buffer interface</code>, optional</dt>
+<dd>Used to fill the array with data.</dd>
+<dt><strong><code>offset</code></strong> :&ensp;<code>int</code>, optional</dt>
+<dd>Offset of array data in buffer.</dd>
+<dt><strong><code>strides</code></strong> :&ensp;<code>tuple</code> of <code>ints</code>, optional</dt>
+<dd>Strides of data in memory.</dd>
+<dt><strong><code>order</code></strong> :&ensp;<code>{'C', 'F'}</code>, optional</dt>
+<dd>Row-major (C-style) or column-major (Fortran-style) order.</dd>
+</dl>
+<h2 id="attributes">Attributes</h2>
+<dl>
+<dt><strong><code>T</code></strong> :&ensp;<code>ndarray</code></dt>
+<dd>Transpose of the array.</dd>
+<dt><strong><code>data</code></strong> :&ensp;<code>buffer</code></dt>
+<dd>The array's elements, in memory.</dd>
+<dt><strong><code>dtype</code></strong> :&ensp;<code>dtype object</code></dt>
+<dd>Describes the format of the elements in the array.</dd>
+<dt><strong><code>flags</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Dictionary containing information related to memory use, e.g.,
+'C_CONTIGUOUS', 'OWNDATA', 'WRITEABLE', etc.</dd>
+<dt><strong><code>flat</code></strong> :&ensp;<code>numpy.flatiter object</code></dt>
+<dd>Flattened version of the array as an iterator.
+The iterator
+allows assignments, e.g., <code>x.flat = 3</code> (See <code>ndarray.flat</code> for
+assignment examples; TODO).</dd>
+<dt><strong><code>imag</code></strong> :&ensp;<code>ndarray</code></dt>
+<dd>Imaginary part of the array.</dd>
+<dt><strong><code>real</code></strong> :&ensp;<code>ndarray</code></dt>
+<dd>Real part of the array.</dd>
+<dt><strong><code>size</code></strong> :&ensp;<code>int</code></dt>
+<dd>Number of elements in the array.</dd>
+<dt><strong><code>itemsize</code></strong> :&ensp;<code>int</code></dt>
+<dd>The memory use of each array element in bytes.</dd>
+<dt><strong><code>nbytes</code></strong> :&ensp;<code>int</code></dt>
+<dd>The total number of bytes required to store the array data,
+i.e., <code>itemsize * size</code>.</dd>
+<dt><strong><code>ndim</code></strong> :&ensp;<code>int</code></dt>
+<dd>The array's number of dimensions.</dd>
+<dt><strong><code>shape</code></strong> :&ensp;<code>tuple</code> of <code>ints</code></dt>
+<dd>Shape of the array.</dd>
+<dt><strong><code>strides</code></strong> :&ensp;<code>tuple</code> of <code>ints</code></dt>
+<dd>The step-size required to move from one element to the next in
+memory. For example, a contiguous <code>(3, 4)</code> array of type
+<code>int16</code> in C-order has strides <code>(8, 2)</code>.
+This implies that
+to move from element to element in memory requires jumps of 2 bytes.
+To move from row-to-row, one needs to jump 8 bytes at a time
+(<code>2 * 4</code>).</dd>
+<dt><strong><code>ctypes</code></strong> :&ensp;<code>ctypes object</code></dt>
+<dd>Class containing properties of the array needed for interaction
+with ctypes.</dd>
+<dt><strong><code>base</code></strong> :&ensp;<code>ndarray</code></dt>
+<dd>If the array is a view into another array, that array is its <code>base</code>
+(unless that array is also a view).
+The <code>base</code> array is where the
+array data is actually stored.</dd>
+</dl>
+<h2 id="see-also">See Also</h2>
+<dl>
+<dt><code>array</code></dt>
+<dd>Construct an array.</dd>
+<dt><code>zeros</code></dt>
+<dd>Create an array, each element of which is zero.</dd>
+<dt><code>empty</code></dt>
+<dd>Create an array, but leave its allocated memory unchanged (i.e., it contains "garbage").</dd>
+<dt><code>dtype</code></dt>
+<dd>Create a data-type.</dd>
+</dl>
+<h2 id="notes">Notes</h2>
+<p>There are two modes of creating an array using <code>__new__</code>:</p>
+<ol>
+<li>If <code>buffer</code> is None, then only <code>shape</code>, <code>dtype</code>, and <code>order</code>
+are used.</li>
+<li>If <code>buffer</code> is an object exposing the buffer interface, then
+all keywords are interpreted.</li>
+</ol>
+<p>No <code>__init__</code> method is needed because the array is fully initialized
+after the <code>__new__</code> method.</p>
+<h2 id="examples">Examples</h2>
+<p>These examples illustrate the low-level <code>ndarray</code> constructor.
+Refer
+to the <code>See Also</code> section above for easier ways of constructing an
+ndarray.</p>
+<p>First mode, <code>buffer</code> is None:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; np.ndarray(shape=(2,2), dtype=float, order='F')
+array([[0.0e+000, 0.0e+000], # random
+       [     nan, 2.5e-323]])
+</code></pre>
+<p>Second mode:</p>
+<pre><code class="language-python-repl">&gt;&gt;&gt; np.ndarray((2,), buffer=np.array([1,2,3]),
+...            offset=np.int_().itemsize,
+...            dtype=int) # offset = 1*itemsize, i.e. skip first element
+array([2, 3])
+</code></pre></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.MatplotNDArrayPlot.write"><code class="name flex">
+<span>def <span class="ident">write</span></span>(<span>self, x: numpy.ndarray) ‑> datapane.client.api.common.DPTmpFile</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BokehBasePlot"><code class="flex name class">
+<span>class <span class="ident">BokehBasePlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns an interactive Bokeh application, supports both basic plots and layout plots via subclasses</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Subclasses</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BokehLayoutPlot" href="#datapane.client.api.files.BokehLayoutPlot">BokehLayoutPlot</a></li>
+<li><a title="datapane.client.api.files.BokehPlot" href="#datapane.client.api.files.BokehPlot">BokehPlot</a></li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BokehBasePlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehBasePlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code>.<code><a title="datapane.client.api.files.PlotAsset.block_type" href="#datapane.client.api.files.PlotAsset.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.BokehBasePlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehBasePlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehBasePlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.BokehBasePlot.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, app)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BokehPlot"><code class="flex name class">
+<span>class <span class="ident">BokehPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns an interactive Bokeh application, supports both basic plots and layout plots via subclasses</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BokehPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></code>.<code><a title="datapane.client.api.files.BokehBasePlot.block_type" href="#datapane.client.api.files.BokehBasePlot.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.BokehPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>Create a new Figure for plotting.</p>
+<p>A subclass of :class:<code>~bokeh.models.plots.Plot</code> that simplifies plot
+creation with default axes, grids, tools, etc.</p>
+<p>Figure objects have many glyph methods that can be used to draw
+vectorized graphical glyphs:</p>
+<div class="admonition hlist">
+<p class="admonition-title">Hlist</p>
+<p>:columns: 3</p>
+<ul>
+<li>:func:<code>~bokeh.plotting.figure.Figure.annular_wedge</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.annulus</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.arc</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.asterisk</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.bezier</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.circle</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.circle_cross</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.circle_x</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.cross</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.dash</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.diamond</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.diamond_cross</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.ellipse</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.harea</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.hbar</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.hex</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.hex_tile</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.image</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.image_rgba</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.image_url</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.inverted_triangle</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.line</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.multi_line</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.multi_polygons</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.oval</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.patch</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.patches</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.quad</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.quadratic</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.ray</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.rect</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.segment</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.square</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.square_cross</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.square_x</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.step</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.text</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.triangle</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.varea</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.vbar</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.wedge</code></li>
+<li>:func:<code>~bokeh.plotting.figure.Figure.x</code></li>
+</ul>
+</div>
+<p>There is a scatter function that can be parameterized by marker type:</p>
+<ul>
+<li>:func:<code>~bokeh.plotting.figure.Figure.scatter</code></li>
+</ul>
+<p>There are also specialized methods for stacking bars:</p>
+<ul>
+<li>bars: :func:<code>~bokeh.plotting.figure.Figure.hbar_stack</code>, :func:<code>~bokeh.plotting.figure.Figure.vbar_stack</code></li>
+<li>lines: :func:<code>~bokeh.plotting.figure.Figure.hline_stack</code>, :func:<code>~bokeh.plotting.figure.Figure.vline_stack</code></li>
+<li>areas: :func:<code>~bokeh.plotting.figure.Figure.harea_stack</code>, :func:<code>~bokeh.plotting.figure.Figure.varea_stack</code></li>
+</ul>
+<p>As well as one specialized method for making simple hexbin plots:</p>
+<ul>
+<li>:func:<code>~bokeh.plotting.figure.Figure.hexbin</code></li>
+</ul>
+<p>In addition to all the <code>Figure</code> property attributes, the following
+options are also accepted:</p>
+<p>.. bokeh-options:: FigureOptions
+:module: bokeh.plotting.figure</p></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.BokehLayoutPlot"><code class="flex name class">
+<span>class <span class="ident">BokehLayoutPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Returns an interactive Bokeh application, supports both basic plots and layout plots via subclasses</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></li>
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.BokehLayoutPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehLayoutPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></code>.<code><a title="datapane.client.api.files.BokehBasePlot.block_type" href="#datapane.client.api.files.BokehBasePlot.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.BokehLayoutPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehLayoutPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.BokehLayoutPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>The base class for layoutable components.</p>
+<div class="admonition note">
+<p class="admonition-title">Note</p>
+<p>This is an abstract base class used to help organize the hierarchy of Bokeh
+model types. <strong>It is not useful to instantiate on its own.</strong></p>
+</div></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.AltairPlot"><code class="flex name class">
+<span>class <span class="ident">AltairPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a vega-light chart from Altair Chart / pdvega Axes object.</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.AltairPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code>.<code><a title="datapane.client.api.files.PlotAsset.block_type" href="#datapane.client.api.files.PlotAsset.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.AltairPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.AltairPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.AltairPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.AltairPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>Base class for schema wrappers.</p>
+<p>Each derived class should set the _schema class attribute (and optionally
+the _rootschema class attribute) which is used for validation.</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.AltairPlot.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, chart: altair.utils.schemapi.SchemaBase)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.PlotlyPlot"><code class="flex name class">
+<span>class <span class="ident">PlotlyPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Creates a plotly graph from a figure object</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.PlotlyPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code>.<code><a title="datapane.client.api.files.PlotAsset.block_type" href="#datapane.client.api.files.PlotAsset.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.PlotlyPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotlyPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotlyPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.PlotlyPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>Base class for all figure types (both widget and non-widget)</p></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.PlotlyPlot.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'TextIO'>, chart: plotly.graph_objs._figure.Figure)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot"><code class="flex name class">
+<span>class <span class="ident">FoliumPlot</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.FoliumPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<div class="desc"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your report when viewed in the browser.</p></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>Create a Map with Folium and Leaflet.js</p>
+<p>Generate a base map of given width and height with either default
+tilesets or a custom tileset URL. The following tilesets are built-in
+to Folium. Pass any of the following to the "tiles" keyword:</p>
+<pre><code>- "OpenStreetMap"
+- "Mapbox Bright" (Limited levels of zoom for free tiles)
+- "Mapbox Control Room" (Limited levels of zoom for free tiles)
+- "Stamen" (Terrain, Toner, and Watercolor)
+- "Cloudmade" (Must pass API key)
+- "Mapbox" (Must pass API key)
+- "CartoDB" (positron and dark_matter)
+</code></pre>
+<p>You can pass a custom tileset to Folium by passing a Leaflet-style
+URL to the tiles parameter: <code>http://{s}.yourtiles.com/{z}/{x}/{y}.png</code></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>location</code></strong> :&ensp;<code>tuple</code> or <code>list</code>, default <code>None</code></dt>
+<dd>Latitude and Longitude of Map (Northing, Easting).</dd>
+<dt><strong><code>width</code></strong> :&ensp;<code>pixel int</code> or <code>percentage string (default: '100%')</code></dt>
+<dd>Width of the map.</dd>
+<dt><strong><code>height</code></strong> :&ensp;<code>pixel int</code> or <code>percentage string (default: '100%')</code></dt>
+<dd>Height of the map.</dd>
+<dt><strong><code>tiles</code></strong> :&ensp;<code>str</code>, default <code>'OpenStreetMap'</code></dt>
+<dd>Map tileset to use. Can choose from a list of built-in tiles,
+pass a custom URL or pass <code>None</code> to create a map without tiles.
+For more advanced tile layer options, use the <code>TileLayer</code> class.</dd>
+<dt><strong><code>min_zoom</code></strong> :&ensp;<code>int</code>, default <code>0</code></dt>
+<dd>Minimum allowed zoom level for the tile layer that is created.</dd>
+<dt><strong><code>max_zoom</code></strong> :&ensp;<code>int</code>, default <code>18</code></dt>
+<dd>Maximum allowed zoom level for the tile layer that is created.</dd>
+<dt><strong><code>zoom_start</code></strong> :&ensp;<code>int</code>, default <code>10</code></dt>
+<dd>Initial zoom level for the map.</dd>
+<dt><strong><code>attr</code></strong> :&ensp;<code>string</code>, default <code>None</code></dt>
+<dd>Map tile attribution; only required if passing custom tile URL.</dd>
+<dt><strong><code>crs</code></strong> :&ensp;<code>str</code>, default <code>'EPSG3857'</code></dt>
+<dd>Defines coordinate reference systems for projecting geographical points
+into pixel (screen) coordinates and back.
+You can use Leaflet's values :
+* EPSG3857 : The most common CRS for online maps, used by almost all
+free and commercial tile providers. Uses Spherical Mercator projection.
+Set in by default in Map's crs option.
+* EPSG4326 : A common CRS among GIS enthusiasts.
+Uses simple Equirectangular projection.
+* EPSG3395 : Rarely used by some commercial tile providers.
+Uses Elliptical Mercator projection.
+* Simple : A simple CRS that maps longitude and latitude into
+x and y directly. May be used for maps of flat surfaces
+(e.g. game maps). Note that the y axis should still be inverted
+(going from bottom to top).</dd>
+<dt><strong><code>control_scale</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Whether to add a control scale on the map.</dd>
+<dt><strong><code>prefer_canvas</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to use the Canvas back-end (if available) for
+vector layers instead of SVG. This can increase performance
+considerably in some cases (e.g. many thousands of circle
+markers on the map).</dd>
+<dt><strong><code>no_touch</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to not use touch events even if it detects them.</dd>
+<dt><strong><code>disable_3d</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to not use hardware-accelerated CSS 3D
+transforms for positioning (which may cause glitches in some
+rare environments) even if they're supported.</dd>
+<dt><strong><code>zoom_control</code></strong> :&ensp;<code>bool</code>, default <code>True</code></dt>
+<dd>Display zoom controls on the map.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional keyword arguments are passed to Leaflets Map class:
+<a href="https://leafletjs.com/reference-1.6.0.html#map">https://leafletjs.com/reference-1.6.0.html#map</a></dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Folium Map Object</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; m = folium.Map(location=[45.523, -122.675],
+...                        width=750, height=500)
+&gt;&gt;&gt; m = folium.Map(location=[45.523, -122.675],
+                           tiles='Mapbox Control Room')
+&gt;&gt;&gt; m = folium.Map(location=(45.523, -122.675), max_zoom=20,
+                           tiles='Cloudmade', API_key='YourKey')
+&gt;&gt;&gt; m = folium.Map(
+...    location=[45.523, -122.675],
+...    zoom_start=2,
+...    tiles='http://{s}.tiles.mapbox.com/v3/mapbox.control-room/{z}/{x}/{y}.png',
+...    attr='Mapbox attribution'
+...)
+</code></pre></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.FoliumPlot.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'BinaryIO'>, m: folium.folium.Map)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot"><code class="flex name class">
+<span>class <span class="ident">p</span></span>
+<span>(</span><span>*args, **kwds)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Abstract base class for generic types.</p>
+<p>A generic type is typically declared by inheriting from
+this class parameterized with one or more type variables.
+For example, a generic mapping type might be defined as::</p>
+<p>class Mapping(Generic[KT, VT]):
+def <strong>getitem</strong>(self, key: KT) -&gt; VT:
+&hellip;
+# Etc.</p>
+<p>This class can then be used as follows::</p>
+<p>def lookup_name(mapping: Mapping[KT, VT], key: KT, default: VT) -&gt; VT:
+try:
+return mapping[key]
+except KeyError:
+return default</p></div>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></li>
+<li><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></li>
+<li>typing.Generic</li>
+<li>abc.ABC</li>
+</ul>
+<h3>Class variables</h3>
+<dl>
+<dt id="datapane.client.api.files.FoliumPlot.block_type"><code class="name">var <span class="ident">block_type</span> : Type[<a title="datapane.client.api.report.blocks.DataBlock" href="report/blocks.html#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]</code></dt>
+<dd>
+<p class="inheritance">
+<em>Inherited from:</em>
+<code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code>.<code><a title="datapane.client.api.files.PlotAsset.block_type" href="#datapane.client.api.files.PlotAsset.block_type">block_type</a></code>
+</p>
+<div class="desc inherited"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
+for interactive display in your …</p></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.file_mode"><code class="name">var <span class="ident">file_mode</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.mimetype"><code class="name">var <span class="ident">mimetype</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.ext"><code class="name">var <span class="ident">ext</span> : str</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+<dt id="datapane.client.api.files.FoliumPlot.obj_type"><code class="name">var <span class="ident">obj_type</span> : ~T</code></dt>
+<dd>
+<div class="desc"><p>Create a Map with Folium and Leaflet.js</p>
+<p>Generate a base map of given width and height with either default
+tilesets or a custom tileset URL. The following tilesets are built-in
+to Folium. Pass any of the following to the "tiles" keyword:</p>
+<pre><code>- "OpenStreetMap"
+- "Mapbox Bright" (Limited levels of zoom for free tiles)
+- "Mapbox Control Room" (Limited levels of zoom for free tiles)
+- "Stamen" (Terrain, Toner, and Watercolor)
+- "Cloudmade" (Must pass API key)
+- "Mapbox" (Must pass API key)
+- "CartoDB" (positron and dark_matter)
+</code></pre>
+<p>You can pass a custom tileset to Folium by passing a Leaflet-style
+URL to the tiles parameter: <code>http://{s}.yourtiles.com/{z}/{x}/{y}.png</code></p>
+<h2 id="parameters">Parameters</h2>
+<dl>
+<dt><strong><code>location</code></strong> :&ensp;<code>tuple</code> or <code>list</code>, default <code>None</code></dt>
+<dd>Latitude and Longitude of Map (Northing, Easting).</dd>
+<dt><strong><code>width</code></strong> :&ensp;<code>pixel int</code> or <code>percentage string (default: '100%')</code></dt>
+<dd>Width of the map.</dd>
+<dt><strong><code>height</code></strong> :&ensp;<code>pixel int</code> or <code>percentage string (default: '100%')</code></dt>
+<dd>Height of the map.</dd>
+<dt><strong><code>tiles</code></strong> :&ensp;<code>str</code>, default <code>'OpenStreetMap'</code></dt>
+<dd>Map tileset to use. Can choose from a list of built-in tiles,
+pass a custom URL or pass <code>None</code> to create a map without tiles.
+For more advanced tile layer options, use the <code>TileLayer</code> class.</dd>
+<dt><strong><code>min_zoom</code></strong> :&ensp;<code>int</code>, default <code>0</code></dt>
+<dd>Minimum allowed zoom level for the tile layer that is created.</dd>
+<dt><strong><code>max_zoom</code></strong> :&ensp;<code>int</code>, default <code>18</code></dt>
+<dd>Maximum allowed zoom level for the tile layer that is created.</dd>
+<dt><strong><code>zoom_start</code></strong> :&ensp;<code>int</code>, default <code>10</code></dt>
+<dd>Initial zoom level for the map.</dd>
+<dt><strong><code>attr</code></strong> :&ensp;<code>string</code>, default <code>None</code></dt>
+<dd>Map tile attribution; only required if passing custom tile URL.</dd>
+<dt><strong><code>crs</code></strong> :&ensp;<code>str</code>, default <code>'EPSG3857'</code></dt>
+<dd>Defines coordinate reference systems for projecting geographical points
+into pixel (screen) coordinates and back.
+You can use Leaflet's values :
+* EPSG3857 : The most common CRS for online maps, used by almost all
+free and commercial tile providers. Uses Spherical Mercator projection.
+Set in by default in Map's crs option.
+* EPSG4326 : A common CRS among GIS enthusiasts.
+Uses simple Equirectangular projection.
+* EPSG3395 : Rarely used by some commercial tile providers.
+Uses Elliptical Mercator projection.
+* Simple : A simple CRS that maps longitude and latitude into
+x and y directly. May be used for maps of flat surfaces
+(e.g. game maps). Note that the y axis should still be inverted
+(going from bottom to top).</dd>
+<dt><strong><code>control_scale</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Whether to add a control scale on the map.</dd>
+<dt><strong><code>prefer_canvas</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to use the Canvas back-end (if available) for
+vector layers instead of SVG. This can increase performance
+considerably in some cases (e.g. many thousands of circle
+markers on the map).</dd>
+<dt><strong><code>no_touch</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to not use touch events even if it detects them.</dd>
+<dt><strong><code>disable_3d</code></strong> :&ensp;<code>bool</code>, default <code>False</code></dt>
+<dd>Forces Leaflet to not use hardware-accelerated CSS 3D
+transforms for positioning (which may cause glitches in some
+rare environments) even if they're supported.</dd>
+<dt><strong><code>zoom_control</code></strong> :&ensp;<code>bool</code>, default <code>True</code></dt>
+<dd>Display zoom controls on the map.</dd>
+<dt><strong><code>**kwargs</code></strong></dt>
+<dd>Additional keyword arguments are passed to Leaflets Map class:
+<a href="https://leafletjs.com/reference-1.6.0.html#map">https://leafletjs.com/reference-1.6.0.html#map</a></dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Folium Map Object</code></dt>
+<dd>&nbsp;</dd>
+</dl>
+<h2 id="examples">Examples</h2>
+<pre><code class="language-python-repl">&gt;&gt;&gt; m = folium.Map(location=[45.523, -122.675],
+...                        width=750, height=500)
+&gt;&gt;&gt; m = folium.Map(location=[45.523, -122.675],
+                           tiles='Mapbox Control Room')
+&gt;&gt;&gt; m = folium.Map(location=(45.523, -122.675), max_zoom=20,
+                           tiles='Cloudmade', API_key='YourKey')
+&gt;&gt;&gt; m = folium.Map(
+...    location=[45.523, -122.675],
+...    zoom_start=2,
+...    tiles='http://{s}.tiles.mapbox.com/v3/mapbox.control-room/{z}/{x}/{y}.png',
+...    attr='Mapbox attribution'
+...)
+</code></pre></div>
+</dd>
+</dl>
+<h3>Methods</h3>
+<dl>
+<dt id="datapane.client.api.files.FoliumPlot.write_file"><code class="name flex">
+<span>def <span class="ident">write_file</span></span>(<span>self, f: <class 'BinaryIO'>, m: folium.folium.Map)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul>
+<li><a href="#creating-charts">Creating charts.</a></li>
+<li><a href="#example">Example</a></li>
+<li><a href="#example_1">Example</a></li>
+</ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="datapane.client.api" href="index.html">datapane.client.api</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="datapane.client.api.files.get_wrapper" href="#datapane.client.api.files.get_wrapper">get_wrapper</a></code></li>
+<li><code><a title="datapane.client.api.files.save" href="#datapane.client.api.files.save">save</a></code></li>
+<li><code><a title="datapane.client.api.files.convert" href="#datapane.client.api.files.convert">convert</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="datapane.client.api.files.BaseAsset" href="#datapane.client.api.files.BaseAsset">BaseAsset</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.BaseAsset.write" href="#datapane.client.api.files.BaseAsset.write">write</a></code></li>
+<li><code><a title="datapane.client.api.files.BaseAsset.write_file" href="#datapane.client.api.files.BaseAsset.write_file">write_file</a></code></li>
+<li><code><a title="datapane.client.api.files.BaseAsset.to_block" href="#datapane.client.api.files.BaseAsset.to_block">to_block</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BasePickleWriter" href="#datapane.client.api.files.BasePickleWriter">BasePickleWriter</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.BasePickleWriter.write_file" href="#datapane.client.api.files.BasePickleWriter.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BaseJsonWriter" href="#datapane.client.api.files.BaseJsonWriter">BaseJsonWriter</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.BaseJsonWriter.write_file" href="#datapane.client.api.files.BaseJsonWriter.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.StringWrapper" href="#datapane.client.api.files.StringWrapper">StringWrapper</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.StringWrapper.write_file" href="#datapane.client.api.files.StringWrapper.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.PathWrapper" href="#datapane.client.api.files.PathWrapper">PathWrapper</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.PathWrapper.to_block" href="#datapane.client.api.files.PathWrapper.to_block">to_block</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BaseTable" href="#datapane.client.api.files.BaseTable">BaseTable</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.BaseTable.write_file" href="#datapane.client.api.files.BaseTable.write_file">write_file</a></code></li>
+<li><code><a title="datapane.client.api.files.BaseTable.to_block" href="#datapane.client.api.files.BaseTable.to_block">to_block</a></code></li>
+<li><code><a title="datapane.client.api.files.BaseTable.render_html" href="#datapane.client.api.files.BaseTable.render_html">render_html</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.StylerTable" href="#datapane.client.api.files.StylerTable">StylerTable</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.StylerTable.render_html" href="#datapane.client.api.files.StylerTable.render_html">render_html</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.DataFrameTable" href="#datapane.client.api.files.DataFrameTable">DataFrameTable</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.DataFrameTable.render_html" href="#datapane.client.api.files.DataFrameTable.render_html">render_html</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.PlotAsset" href="#datapane.client.api.files.PlotAsset">PlotAsset</a></code></h4>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.MatplotBasePlot" href="#datapane.client.api.files.MatplotBasePlot">MatplotBasePlot</a></code></h4>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.MatplotFigurePlot" href="#datapane.client.api.files.MatplotFigurePlot">MatplotFigurePlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.MatplotFigurePlot.write" href="#datapane.client.api.files.MatplotFigurePlot.write">write</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.MatplotAxesPlot" href="#datapane.client.api.files.MatplotAxesPlot">MatplotAxesPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.MatplotAxesPlot.write" href="#datapane.client.api.files.MatplotAxesPlot.write">write</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.MatplotNDArrayPlot" href="#datapane.client.api.files.MatplotNDArrayPlot">MatplotNDArrayPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.MatplotNDArrayPlot.write" href="#datapane.client.api.files.MatplotNDArrayPlot.write">write</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BokehBasePlot" href="#datapane.client.api.files.BokehBasePlot">BokehBasePlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.BokehBasePlot.write_file" href="#datapane.client.api.files.BokehBasePlot.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BokehPlot" href="#datapane.client.api.files.BokehPlot">BokehPlot</a></code></h4>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.BokehLayoutPlot" href="#datapane.client.api.files.BokehLayoutPlot">BokehLayoutPlot</a></code></h4>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.AltairPlot" href="#datapane.client.api.files.AltairPlot">AltairPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.AltairPlot.write_file" href="#datapane.client.api.files.AltairPlot.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.PlotlyPlot" href="#datapane.client.api.files.PlotlyPlot">PlotlyPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.PlotlyPlot.write_file" href="#datapane.client.api.files.PlotlyPlot.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.FoliumPlot" href="#datapane.client.api.files.FoliumPlot">FoliumPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.FoliumPlot.write_file" href="#datapane.client.api.files.FoliumPlot.write_file">write_file</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="datapane.client.api.files.FoliumPlot" href="#datapane.client.api.files.FoliumPlot">FoliumPlot</a></code></h4>
+<ul class="">
+<li><code><a title="datapane.client.api.files.FoliumPlot.write_file" href="#datapane.client.api.files.FoliumPlot.write_file">write_file</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
