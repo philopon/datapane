@@ -55,6 +55,42 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <h2 id="returns">Returns</h2>
 <p>A Select block that provides the figure and the code in tabs that can be selected by the user</p></div>
 </dd>
+<dt id="datapane.client.api.templates.add_header"><code class="name flex">
+<span>def <span class="ident">add_header</span></span>(<span>report: <a title="datapane.client.api.report.core.Report" href="report/core.html#datapane.client.api.report.core.Report">Report</a>, header: Union[ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any], all_pages: bool = True) ‑> <a title="datapane.client.api.report.core.Report" href="report/core.html#datapane.client.api.report.core.Report">Report</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a header to the report, returning a modified version of the same report</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>report</code></strong></dt>
+<dd>The report to add the header to</dd>
+<dt><strong><code>header</code></strong></dt>
+<dd>The header block - this can be any dp Block, e.g a File, Plot, Logo, or anything</dd>
+<dt><strong><code>all_pages</code></strong></dt>
+<dd>Apply the header to all pages or just the first page only</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A modified report with the header applied
+..note: The header can be any Block object but must not have an assigned id currently</p></div>
+</dd>
+<dt id="datapane.client.api.templates.add_footer"><code class="name flex">
+<span>def <span class="ident">add_footer</span></span>(<span>report: <a title="datapane.client.api.report.core.Report" href="report/core.html#datapane.client.api.report.core.Report">Report</a>, footer: Union[ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any], all_pages: bool = True) ‑> <a title="datapane.client.api.report.core.Report" href="report/core.html#datapane.client.api.report.core.Report">Report</a></span>
+</code></dt>
+<dd>
+<div class="desc"><p>Add a footer to the report, returning a modified version of the same report</p>
+<h2 id="args">Args</h2>
+<dl>
+<dt><strong><code>report</code></strong></dt>
+<dd>The report to add the header to</dd>
+<dt><strong><code>footer</code></strong></dt>
+<dd>The footer block - this can be any dp Block, e.g a File, Plot, Logo, or anything</dd>
+<dt><strong><code>all_pages</code></strong></dt>
+<dd>Apply the header to all pages or just the first page only</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<p>A modified report with the footer applied
+..note: The header can be any Block object but must not have an assigned id currently</p></div>
+</dd>
 <dt id="datapane.client.api.templates.build_md_report"><code class="name flex">
 <span>def <span class="ident">build_md_report</span></span>(<span>text_or_file: Union[str, pathlib.Path, os.PathLike], *args: Union[ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any], **kwargs: Union[ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any]) ‑> <a title="datapane.client.api.report.core.Report" href="report/core.html#datapane.client.api.report.core.Report">Report</a></span>
 </code></dt>
@@ -104,6 +140,8 @@ Any additional context can be passed in and will be inserted into the Markdown t
 <li><h3><a href="#header-functions">Functions</a></h3>
 <ul class="">
 <li><code><a title="datapane.client.api.templates.add_code" href="#datapane.client.api.templates.add_code">add_code</a></code></li>
+<li><code><a title="datapane.client.api.templates.add_header" href="#datapane.client.api.templates.add_header">add_header</a></code></li>
+<li><code><a title="datapane.client.api.templates.add_footer" href="#datapane.client.api.templates.add_footer">add_footer</a></code></li>
 <li><code><a title="datapane.client.api.templates.build_md_report" href="#datapane.client.api.templates.build_md_report">build_md_report</a></code></li>
 <li><code><a title="datapane.client.api.templates.build_demo_report" href="#datapane.client.api.templates.build_demo_report">build_demo_report</a></code></li>
 </ul>
