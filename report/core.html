@@ -40,7 +40,7 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <dl>
 <dt id="datapane.client.api.report.core.Report"><code class="flex name class">
 <span>class <span class="ident">Report</span></span>
-<span>(</span><span>*arg_blocks: Union[ForwardRef('Page'), ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any], blocks: List[Union[ForwardRef('Page'), ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any]] = None, full_width: bool = False, **kwargs)</span>
+<span>(</span><span>*arg_blocks: Union[ForwardRef('Page'), ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any], blocks: List[Union[ForwardRef('Page'), ForwardRef('Group'), ForwardRef('Select'), ForwardRef('DataBlock'), Any]] = None, type: datapane.client.api.report.core.ReportType = ReportType.REPORT, **kwargs)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Reports collate plots, text, tables, and files into an interactive report that
@@ -51,8 +51,8 @@ can be analysed and shared by users in their Browser</p>
 <dd>Group to add to report</dd>
 <dt><strong><code>blocks</code></strong></dt>
 <dd>Allows providing the report blocks as a single list</dd>
-<dt><strong><code>full_width</code></strong></dt>
-<dd>Set to <code>True</code> to increase the report width, for instance when creating a dashboard</dd>
+<dt><strong><code>type</code></strong></dt>
+<dd>Set the Report type, this will affect the formatting and layout of the report</dd>
 </dl>
 <div class="admonition tip">
 <p class="admonition-title">Tip:&ensp;Group can be passed using either arg parameters or the <code>blocks</code> kwarg, e.g.</p>
@@ -68,7 +68,7 @@ can be analysed and shared by users in their Browser</p>
 <dd>
 <div class="desc"></div>
 </dd>
-<dt id="datapane.client.api.report.core.Report.full_width"><code class="name">var <span class="ident">full_width</span> : bool</code></dt>
+<dt id="datapane.client.api.report.core.Report.report_type"><code class="name">var <span class="ident">report_type</span> : datapane.client.api.report.core.ReportType</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
