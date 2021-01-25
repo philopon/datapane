@@ -40,7 +40,7 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 <dl>
 <dt id="datapane.client.api.report.blocks.BaseElement"><code class="flex name class">
 <span>class <span class="ident">BaseElement</span></span>
-<span>(</span><span>id: str = None, **kwargs)</span>
+<span>(</span><span>id: Union[str, NoneType] = None, **kwargs)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Base Block class - subclassed by all Block types</p>
@@ -64,7 +64,7 @@ ga('create', 'UA-167952366-2', 'auto'); ga('send', 'pageview');
 </dd>
 <dt id="datapane.client.api.report.blocks.Page"><code class="flex name class">
 <span>class <span class="ident">Page</span></span>
-<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: Union[List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]], NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>All <code><a title="datapane.client.api.report.core.Report" href="core.html#datapane.client.api.report.core.Report">Report</a></code>s consist of a list of Pages.
@@ -97,7 +97,7 @@ A Page itself is a Block, but is only allowed at the top-level and cannot be nes
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.blocks.Page.blocks"><code class="name">var <span class="ident">blocks</span> : List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]]</code></dt>
+<dt id="datapane.client.api.report.blocks.Page.blocks"><code class="name">var <span class="ident">blocks</span> : Union[List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]], NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -113,7 +113,7 @@ A Page itself is a Block, but is only allowed at the top-level and cannot be nes
 </dd>
 <dt id="datapane.client.api.report.blocks.Group"><code class="flex name class">
 <span>class <span class="ident">Group</span></span>
-<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]] = None, id: str = None, label: str = None, rows: int = 0, columns: int = 1)</span>
+<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: Union[List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]], NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None, rows: int = 0, columns: int = 1)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Groups act as a container that hold a list of nested Blocks object, such
@@ -154,7 +154,7 @@ as Tables, Plots, etc.. - they may even hold Group themselves recursively.</p>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.blocks.Group.blocks"><code class="name">var <span class="ident">blocks</span> : List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]]</code></dt>
+<dt id="datapane.client.api.report.blocks.Group.blocks"><code class="name">var <span class="ident">blocks</span> : Union[List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]], NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -170,7 +170,7 @@ as Tables, Plots, etc.. - they may even hold Group themselves recursively.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.Select"><code class="flex name class">
 <span>class <span class="ident">Select</span></span>
-<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]] = None, type: Union[<a title="datapane.client.api.report.blocks.SelectType" href="#datapane.client.api.report.blocks.SelectType">SelectType</a>, NoneType] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>*arg_blocks: Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any], blocks: Union[List[Union[ForwardRef('<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>'), ForwardRef('<a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>'), Any]], NoneType] = None, type: Union[<a title="datapane.client.api.report.blocks.SelectType" href="#datapane.client.api.report.blocks.SelectType">SelectType</a>, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Select act as a container that hold a list of nested Blocks object, such
@@ -205,7 +205,7 @@ as Tables, Plots, etc.. - but only one may be <strong>visible</strong>, or "sele
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.blocks.Select.blocks"><code class="name">var <span class="ident">blocks</span> : List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]]</code></dt>
+<dt id="datapane.client.api.report.blocks.Select.blocks"><code class="name">var <span class="ident">blocks</span> : Union[List[Union[<a title="datapane.client.api.report.blocks.Group" href="#datapane.client.api.report.blocks.Group">Group</a>, <a title="datapane.client.api.report.blocks.Select" href="#datapane.client.api.report.blocks.Select">Select</a>, <a title="datapane.client.api.report.blocks.DataBlock" href="#datapane.client.api.report.blocks.DataBlock">DataBlock</a>]], NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -243,7 +243,7 @@ as Tables, Plots, etc.. - but only one may be <strong>visible</strong>, or "sele
 </dd>
 <dt id="datapane.client.api.report.blocks.Table"><code class="flex name class">
 <span>class <span class="ident">Table</span></span>
-<span>(</span><span>data: Union[pandas.core.frame.DataFrame, pandas.io.formats.style.Styler], caption: Union[str, NoneType] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>data: Union[pandas.core.frame.DataFrame, pandas.io.formats.style.Styler], caption: Union[str, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Table blocks store the contents of a dataframe as a HTML <code>table</code> whose style can be customised using
@@ -268,7 +268,7 @@ pandas' <code>Styler</code> API.</p>
 </ul>
 <h3>Class variables</h3>
 <dl>
-<dt id="datapane.client.api.report.blocks.Table.file"><code class="name">var <span class="ident">file</span> : pathlib.Path</code></dt>
+<dt id="datapane.client.api.report.blocks.Table.file"><code class="name">var <span class="ident">file</span> : Union[pathlib.Path, NoneType]</code></dt>
 <dd>
 <div class="desc"></div>
 </dd>
@@ -288,7 +288,7 @@ pandas' <code>Styler</code> API.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.DataTable"><code class="flex name class">
 <span>class <span class="ident">DataTable</span></span>
-<span>(</span><span>df: pandas.core.frame.DataFrame, caption: Union[str, NoneType] = None, can_pivot: bool = True, id: str = None, label: str = None)</span>
+<span>(</span><span>df: pandas.core.frame.DataFrame, caption: Union[str, NoneType] = None, can_pivot: bool = True, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>DataTable blocks store a dataframe that can be viewed, sorted, filtered by users viewing your report, similar to a spreadsheet,
@@ -337,7 +337,7 @@ and can be downloaded by them as a CSV or Excel file.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.DataBlock"><code class="flex name class">
 <span>class <span class="ident">DataBlock</span></span>
-<span>(</span><span>id: str = None, **kwargs)</span>
+<span>(</span><span>id: Union[str, NoneType] = None, **kwargs)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Abstract block that represents a leaf-node in the tree, e.g. a Plot or Table</p>
@@ -363,7 +363,7 @@ and can be downloaded by them as a CSV or Excel file.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.Plot"><code class="flex name class">
 <span>class <span class="ident">Plot</span></span>
-<span>(</span><span>data: Any, caption: Union[str, NoneType] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>data: Any, caption: Union[str, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Plot blocks store a Python-based plot object, including ones created by Altair, Plotly, Matplotlib, Bokeh, and Folium,
@@ -404,7 +404,7 @@ for interactive display in your report when viewed in the browser.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.BigNumber"><code class="flex name class">
 <span>class <span class="ident">BigNumber</span></span>
-<span>(</span><span>heading: str, value: Union[str, int, float], change: Union[str, int, float, NoneType] = None, prev_value: Union[str, int, float, NoneType] = None, is_positive_intent: Union[bool, NoneType] = None, is_upward_change: Union[bool, NoneType] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>heading: str, value: Union[str, int, float], change: Union[str, int, float, NoneType] = None, prev_value: Union[str, int, float, NoneType] = None, is_positive_intent: Union[bool, NoneType] = None, is_upward_change: Union[bool, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>BigNumber blocks display a numerical value with a heading, alongside optional contextual information about the previous value.</p>
@@ -447,7 +447,7 @@ for interactive display in your report when viewed in the browser.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.Text"><code class="flex name class">
 <span>class <span class="ident">Text</span></span>
-<span>(</span><span>text: str = None, file: Union[pathlib.Path, os.PathLike, str] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>text: Union[str, NoneType] = None, file: Union[pathlib.Path, os.PathLike, str, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Markdown objects store Markdown text that can be displayed as formatted text when viewing your report.</p>
@@ -515,7 +515,7 @@ for interactive display in your report when viewed in the browser.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.Code"><code class="flex name class">
 <span>class <span class="ident">Code</span></span>
-<span>(</span><span>code: str, language: str = 'python', id: str = None, label: str = None)</span>
+<span>(</span><span>code: str, language: str = 'python', id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>Code objects store source code that can be displayed as formatted text when viewing your report.</p>
@@ -555,7 +555,7 @@ for interactive display in your report when viewed in the browser.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.HTML"><code class="flex name class">
 <span>class <span class="ident">HTML</span></span>
-<span>(</span><span>html: Union[str, dominate.dom_tag.dom_tag], id: str = None, label: str = None)</span>
+<span>(</span><span>html: Union[str, dominate.dom_tag.dom_tag], id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>HTML blocks can be used to embed an arbitrary HTML fragment in a report.</p>
@@ -593,7 +593,7 @@ for interactive display in your report when viewed in the browser.</p>
 </dd>
 <dt id="datapane.client.api.report.blocks.File"><code class="flex name class">
 <span>class <span class="ident">File</span></span>
-<span>(</span><span>data: Union[Any, NoneType] = None, file: Union[pathlib.Path, os.PathLike, str, NoneType] = None, is_json: bool = False, can_download: bool = True, name: Union[str, NoneType] = None, id: str = None, label: str = None)</span>
+<span>(</span><span>data: Union[Any, NoneType] = None, file: Union[pathlib.Path, os.PathLike, str, NoneType] = None, is_json: bool = False, can_download: bool = True, name: Union[str, NoneType] = None, id: Union[str, NoneType] = None, label: Union[str, NoneType] = None)</span>
 </code></dt>
 <dd>
 <div class="desc"><p>File blocks are used to attach a file to the report that can be displayed (if possible) and downloaded by report viewers</p>
