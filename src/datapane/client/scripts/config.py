@@ -54,8 +54,8 @@ class DatapaneCfg:
     name: str = "datapane"
     # relative path to script
     script: Path = dc.field(default_factory=lambda: DEFAULT_IPYNB if DEFAULT_IPYNB.exists() else DEFAULT_PY)
-    config: dc.InitVar[Path] = None
-    proj_dir: ClassVar[Path] = None
+    config: Optional[dc.InitVar[Path]] = None
+    proj_dir: Optional[ClassVar[Path]] = None
 
     # run options
     container_image_name: str = ""
@@ -97,7 +97,7 @@ class DatapaneCfg:
             jsonschema.validate(self.parameters, config_schema)
 
     @classmethod
-    def create_initial(cls, config_file: Path = None, script: Path = None, **kw) -> "DatapaneCfg":
+    def create_initial(cls, config_file: Optional[Path] = None, script: Optional[Path] = None, **kw) -> "DatapaneCfg":
         raw_config = {}
 
         if config_file:
